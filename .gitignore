@@ -1,10 +1,10 @@
 **/*.pyc
 **/__pycache__
-*.egg-info
-build/
-dist/
-docs/autodocs/source/bmtk/
-docs/autodocs/source/*.ipynb
+/*.egg-info
+/dist/
+/build/
+/docs/autodocs/source/bmtk/
+/docs/autodocs/source/*.ipynb
 **/*.code-workspace
 **/.coverage
 **/*~

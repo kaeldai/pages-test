@@ -1,0 +1,31 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - names: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Requirements
+        run: |
+          nmp install
+          pip install -r doc_requirements.txt
+          pip install neuron==8.0.0
+          pip install .
+      
+      - name: Deplay to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
