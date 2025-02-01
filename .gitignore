@@ -1,0 +1,11 @@
+**/*.pyc
+**/__pycache__
+*.egg-info
+build/
+dist/
+docs/autodocs/source/bmtk/
+docs/autodocs/source/*.ipynb
+**/*.code-workspace
+**/.coverage
+**/*~
+**/x86_64/**
