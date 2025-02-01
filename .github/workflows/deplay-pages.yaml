@@ -19,7 +19,7 @@ jobs:
 
       - name: Install Requirements
         run: |
-          nmp install
+          npm install
           pip install -r doc_requirements.txt
           pip install neuron==8.0.0
           pip install .
