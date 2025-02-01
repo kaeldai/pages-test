@@ -25,7 +25,6 @@ jobs:
       - name: Install Requirements
         run: |
           pip install -r doc_requirements.txt
-          pip install neuron==8.0.0
           pip install .
 
       - name: Build Documentation
