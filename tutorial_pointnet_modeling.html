@@ -1342,7 +1342,7 @@ INFO:NestIOUtils:Done.
 <section id="Perturbation-simulations">
 <h3>Perturbation simulations<a class="headerlink" href="#Perturbation-simulations" title="Link to this heading">#</a></h3>
 <p>A common use case is to mimick a network where the firing rate of select cells are being depressed or stimulated using current clamps or optogenetic methods. The best way to do this is by applying a current clamp in a similar manner used in <a class="reference external" href="http://localhost:32000/notebooks/Workspace/bmtk/docs/tutorial/01_single_cell_clamped.ipynb">bionet</a>.</p>
-<p>The point_120cells network in the bmtk examples consists of 120 recurrently connected excitatory and inhibitory cells with randomized inputs. Normally the results without any type of perturbations will look as follows: <img alt="3cd1b39b148c4912bdaa26db1e22411f" src="_images/raster_120cells_orig.png" /></p>
+<p>The point_120cells network in the bmtk examples consists of 120 recurrently connected excitatory and inhibitory cells with randomized inputs. Normally the results without any type of perturbations will look as follows: <img alt="a0edebedd95145bcb0e617948356e977" src="_images/raster_120cells_orig.png" /></p>
 <p>To artifically excite some of the cells we can open the config.json file and add the following section to the “inputs”:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;exc_perturbation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -1385,7 +1385,7 @@ INFO:NestIOUtils:Done.
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>After we rerun the simulation: <img alt="83e83efcc5cb4eb899594c08aae9a567" src="_images/raster_120cells_perturbed.png" /></p>
+<p>After we rerun the simulation: <img alt="3f49ab448635411d98d7924b9b1963c4" src="_images/raster_120cells_perturbed.png" /></p>
 </section>
 </section>
 </section>
