@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -34,7 +34,12 @@ jobs:
         run: |
           cd docs/autodocs
           make html
-      
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: Pages
+    steps:
       - name: Deplay to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
