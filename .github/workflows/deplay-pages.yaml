@@ -1,12 +1,10 @@
 name: Deploy Github Pages
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -34,13 +32,8 @@ jobs:
         run: |
           cd docs/autodocs
           make html
-  
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: Pages
-    steps:
-      - name: Deplay to Github Pages
+          
+      - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
