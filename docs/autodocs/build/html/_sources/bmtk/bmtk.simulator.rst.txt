@@ -1,0 +1,23 @@
+bmtk.simulator package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   bmtk.simulator.bionet
+   bmtk.simulator.core
+   bmtk.simulator.filternet
+   bmtk.simulator.pointnet
+   bmtk.simulator.popnet
+   bmtk.simulator.utils
+
+Module contents
+---------------
+
+.. automodule:: bmtk.simulator
+   :members:
+   :undoc-members:
+   :show-inheritance:

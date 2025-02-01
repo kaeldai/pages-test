@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmtk.simulator.pointnet.pointnetwork &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bmtk/simulator/pointnet/pointnetwork';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk.simulator.pointnet.pointnetwork</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for bmtk.simulator.pointnet.pointnetwork</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2017. Allen Institute. All rights reserved</span>
+<span class="c1">#</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without modification, are permitted provided that the</span>
+<span class="c1"># following conditions are met:</span>
+<span class="c1">#</span>
+<span class="c1"># 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following</span>
+<span class="c1"># disclaimer.</span>
+<span class="c1">#</span>
+<span class="c1"># 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following</span>
+<span class="c1"># disclaimer in the documentation and/or other materials provided with the distribution.</span>
+<span class="c1">#</span>
+<span class="c1"># 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote</span>
+<span class="c1"># products derived from this software without specific prior written permission.</span>
+<span class="c1">#</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,</span>
+<span class="c1"># INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE</span>
+<span class="c1"># DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</span>
+<span class="c1"># SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</span>
+<span class="c1"># SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,</span>
+<span class="c1"># WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
+<span class="c1"># OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="c1">#</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nest</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">six</span><span class="w"> </span><span class="kn">import</span> <span class="n">string_types</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.core.simulator_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimNetwork</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.pointnet.sonata_adaptors</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointNodeAdaptor</span><span class="p">,</span> <span class="n">PointEdgeAdaptor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.pointnet</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyfunction_cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.pointnet.io_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.pointnet.nest_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">nest_version</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.gids</span><span class="w"> </span><span class="kn">import</span> <span class="n">GidPool</span>
+
+
+<div class="viewcode-block" id="set_spikes_nest2">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.set_spikes_nest2">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_spikes_nest2</span><span class="p">(</span><span class="n">node_id</span><span class="p">,</span> <span class="n">nest_obj</span><span class="p">,</span> <span class="n">spike_trains</span><span class="p">):</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">spike_trains</span><span class="o">.</span><span class="n">get_times</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">st</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">st</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">st</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="c1"># NRN will fail if VecStim contains negative spike-time, throw an exception and log info for user</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">log_exception</span><span class="p">(</span><span class="s1">&#39;spike train </span><span class="si">{}</span><span class="s1"> contains negative/zero time, unable to run virtual cell in NEST&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">st</span><span class="p">))</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">nest</span><span class="o">.</span><span class="n">SetStatus</span><span class="p">([</span><span class="n">nest_obj</span><span class="p">],</span> <span class="p">{</span><span class="s1">&#39;spike_times&#39;</span><span class="p">:</span> <span class="n">st</span><span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="set_spikes_nest3">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.set_spikes_nest3">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_spikes_nest3</span><span class="p">(</span><span class="n">node_id</span><span class="p">,</span> <span class="n">nest_obj</span><span class="p">,</span> <span class="n">spike_trains</span><span class="p">):</span>
+    <span class="n">st</span> <span class="o">=</span> <span class="n">spike_trains</span><span class="o">.</span><span class="n">get_times</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">st</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">st</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">st</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">st</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">):</span>
+        <span class="n">io</span><span class="o">.</span><span class="n">log_exception</span><span class="p">(</span><span class="s1">&#39;spike train </span><span class="si">{}</span><span class="s1"> contains negative/zero time, unable to run virtual cell in NEST&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">st</span><span class="p">))</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">nest</span><span class="o">.</span><span class="n">SetStatus</span><span class="p">(</span><span class="n">nest_obj</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;spike_times&#39;</span><span class="p">:</span> <span class="n">st</span><span class="p">})</span></div>
+
+
+
+<span class="k">if</span> <span class="n">nest_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">set_spikes</span> <span class="o">=</span> <span class="n">set_spikes_nest3</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">set_spikes</span> <span class="o">=</span> <span class="n">set_spikes_nest2</span>
+
+
+<div class="viewcode-block" id="PointNetwork">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PointNetwork</span><span class="p">(</span><span class="n">SimNetwork</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">properties</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PointNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">properties</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_io</span> <span class="o">=</span> <span class="n">io</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weight_functions</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_params_cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_virtual_ids_map</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_batch_nodes</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># self._nest_id_map = {}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nestid2nodeid_map</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nestid2gid</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_table</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gid2nestid</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nest_modules</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span> <span class="o">=</span> <span class="n">GidPool</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_virtual_gids</span> <span class="o">=</span> <span class="n">GidPool</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">py_function_caches</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pyfunction_cache</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gid_map</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">gid_pool</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span>
+
+<div class="viewcode-block" id="PointNetwork.get_nodes_df">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.get_nodes_df">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_nodes_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
+        <span class="n">nodes_adaptor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_population</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nodes_adaptor</span><span class="o">.</span><span class="n">nodes_df</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_params</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">node_params</span><span class="o">.</span><span class="n">with_dynamics_params</span><span class="p">:</span>
+            <span class="c1"># TODO: use property, not name</span>
+            <span class="k">return</span> <span class="n">node_params</span><span class="p">[</span><span class="s1">&#39;dynamics_params&#39;</span><span class="p">]</span>
+
+        <span class="n">params_file</span> <span class="o">=</span> <span class="n">node_params</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_column</span><span class="p">]</span>
+        <span class="c1"># params_file = self._MT.params_column(node_params) #node_params[&#39;dynamics_params&#39;]</span>
+        <span class="k">if</span> <span class="n">params_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_params_cache</span><span class="p">[</span><span class="n">params_file</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">params_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_component</span><span class="p">(</span><span class="s1">&#39;models_dir&#39;</span><span class="p">)</span>
+            <span class="n">params_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">params_dir</span><span class="p">,</span> <span class="n">params_file</span><span class="p">)</span>
+            <span class="n">params_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">params_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_params_cache</span><span class="p">[</span><span class="n">params_file</span><span class="p">]</span> <span class="o">=</span> <span class="n">params_dict</span>
+            <span class="k">return</span> <span class="n">params_dict</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_register_adaptors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PointNetwork</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_register_adaptors</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_node_adaptors</span><span class="p">[</span><span class="s1">&#39;sonata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PointNodeAdaptor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span><span class="p">[</span><span class="s1">&#39;sonata&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PointEdgeAdaptor</span>
+
+    <span class="c1"># TODO: reimplement with py_modules like in bionet</span>
+<div class="viewcode-block" id="PointNetwork.add_weight_function">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.add_weight_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_weight_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fnc</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">fnc_name</span> <span class="o">=</span> <span class="n">name</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weight_functions</span><span class="p">[</span><span class="n">fnc_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">fnc</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.add_nest_module">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.add_nest_module">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_nest_module</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module_path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">module_path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nest_modules</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nest_modules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.set_default_weight_function">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.set_default_weight_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_default_weight_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fnc</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_weight_function</span><span class="p">(</span><span class="n">fnc</span><span class="p">,</span> <span class="s1">&#39;default_weight_fnc&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.get_weight_function">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.get_weight_function">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_weight_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__weight_functions</span><span class="p">[</span><span class="n">name</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.get_node_id">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.get_node_id">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_node_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="n">pop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_population</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pop</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="n">node_id</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.build_nodes">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.build_nodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">node_pop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_populations</span><span class="p">:</span>
+            <span class="n">pop_name</span> <span class="o">=</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">name</span>
+            <span class="n">gid_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gid_map</span>
+
+            <span class="n">gid_map</span><span class="o">.</span><span class="n">create_pool</span><span class="p">(</span><span class="n">pop_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">internal_nodes_only</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">get_nodes</span><span class="p">():</span>
+                    <span class="n">node</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+                    <span class="n">gid_map</span><span class="o">.</span><span class="n">add_nestids</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">pop_name</span><span class="p">,</span> <span class="n">node_ids</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">node_ids</span><span class="p">,</span> <span class="n">nest_ids</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">nest_ids</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">mixed_nodes</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">get_nodes</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">model_type</span> <span class="o">!=</span> <span class="s1">&#39;virtual&#39;</span><span class="p">:</span>
+                        <span class="n">node</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+                        <span class="n">gid_map</span><span class="o">.</span><span class="n">add_nestids</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">pop_name</span><span class="p">,</span> <span class="n">node_ids</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">node_ids</span><span class="p">,</span> <span class="n">nest_ids</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">nest_ids</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.build_recurrent_edges">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.build_recurrent_edges">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_recurrent_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force_resolution</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="n">recurrent_edge_pops</span> <span class="o">=</span> <span class="p">[</span><span class="n">ep</span> <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_populations</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ep</span><span class="o">.</span><span class="n">virtual_connections</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">recurrent_edge_pops</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">for</span> <span class="n">edge_pop</span> <span class="ow">in</span> <span class="n">recurrent_edge_pops</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edge_pop</span><span class="o">.</span><span class="n">get_edges</span><span class="p">():</span>
+                <span class="n">nest_srcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gid_map</span><span class="o">.</span><span class="n">get_nestids</span><span class="p">(</span><span class="n">edge_pop</span><span class="o">.</span><span class="n">source_nodes</span><span class="p">,</span> <span class="n">edge</span><span class="o">.</span><span class="n">source_node_ids</span><span class="p">)</span>
+                <span class="n">nest_trgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gid_map</span><span class="o">.</span><span class="n">get_nestids</span><span class="p">(</span><span class="n">edge_pop</span><span class="o">.</span><span class="n">target_nodes</span><span class="p">,</span> <span class="n">edge</span><span class="o">.</span><span class="n">target_node_ids</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]):</span>
+                    <span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nest_srcs</span><span class="p">),</span>
+                                                         <span class="n">fill_value</span><span class="o">=</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_nest_connect</span><span class="p">(</span><span class="n">nest_srcs</span><span class="p">,</span> <span class="n">nest_trgs</span><span class="p">,</span> <span class="n">conn_spec</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">,</span> <span class="n">syn_spec</span><span class="o">=</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.find_edges">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.find_edges">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">find_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># TODO: Move to parent</span>
+        <span class="n">selected_edges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_populations</span><span class="p">[:]</span>
+
+        <span class="k">if</span> <span class="n">source_nodes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">selected_edges</span> <span class="o">=</span> <span class="p">[</span><span class="n">edge_pop</span> <span class="k">for</span> <span class="n">edge_pop</span> <span class="ow">in</span> <span class="n">selected_edges</span> <span class="k">if</span> <span class="n">edge_pop</span><span class="o">.</span><span class="n">source_nodes</span> <span class="o">==</span> <span class="n">source_nodes</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">target_nodes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">selected_edges</span> <span class="o">=</span> <span class="p">[</span><span class="n">edge_pop</span> <span class="k">for</span> <span class="n">edge_pop</span> <span class="ow">in</span> <span class="n">selected_edges</span> <span class="k">if</span> <span class="n">edge_pop</span><span class="o">.</span><span class="n">target_nodes</span> <span class="o">==</span> <span class="n">target_nodes</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">selected_edges</span></div>
+
+
+<div class="viewcode-block" id="PointNetwork.add_spike_trains">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.simulator.pointnet.html#bmtk.simulator.pointnet.pointnetwork.PointNetwork.add_spike_trains">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_spike_trains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spike_trains</span><span class="p">,</span> <span class="n">node_set</span><span class="p">,</span> <span class="n">sg_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;precise_times&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}):</span>
+        <span class="c1"># Build the virtual nodes</span>
+        <span class="n">src_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">node_pop</span> <span class="k">for</span> <span class="n">node_pop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_populations</span> <span class="k">if</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">node_set</span><span class="o">.</span><span class="n">population_names</span><span class="p">()]</span>
+        <span class="n">virt_gid_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_virtual_gids</span>
+        <span class="k">for</span> <span class="n">node_pop</span> <span class="ow">in</span> <span class="n">src_nodes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_virtual_ids_map</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">virt_node_map</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">if</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">virtual_nodes_only</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">get_nodes</span><span class="p">():</span>
+                    <span class="n">nest_objs</span> <span class="o">=</span> <span class="n">nest</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s1">&#39;spike_generator&#39;</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="n">sg_params</span><span class="p">)</span>
+                    <span class="n">nest_ids</span> <span class="o">=</span> <span class="n">nest_objs</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">if</span> <span class="n">nest_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">nest_objs</span>
+
+                    <span class="n">virt_gid_map</span><span class="o">.</span><span class="n">add_nestids</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">node_pop</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">nest_ids</span><span class="o">=</span><span class="n">nest_ids</span><span class="p">,</span> <span class="n">node_ids</span><span class="o">=</span><span class="n">node</span><span class="o">.</span><span class="n">node_ids</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">nest_obj</span><span class="p">,</span> <span class="n">nest_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">node_ids</span><span class="p">,</span> <span class="n">nest_objs</span><span class="p">,</span> <span class="n">nest_ids</span><span class="p">):</span>
+                        <span class="n">virt_node_map</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">nest_id</span>
+                        <span class="n">set_spikes</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span> <span class="n">nest_obj</span><span class="o">=</span><span class="n">nest_obj</span><span class="p">,</span> <span class="n">spike_trains</span><span class="o">=</span><span class="n">spike_trains</span><span class="p">)</span>
+
+            <span class="k">elif</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">mixed_nodes</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_pop</span><span class="o">.</span><span class="n">get_nodes</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">model_type</span> <span class="o">!=</span> <span class="s1">&#39;virtual&#39;</span><span class="p">:</span>
+                        <span class="k">continue</span>
+
+                    <span class="n">nest_ids</span> <span class="o">=</span> <span class="n">nest</span><span class="o">.</span><span class="n">Create</span><span class="p">(</span><span class="s1">&#39;spike_generator&#39;</span><span class="p">,</span> <span class="n">node</span><span class="o">.</span><span class="n">n_nodes</span><span class="p">,</span> <span class="n">sg_params</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">nest_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">node_ids</span><span class="p">,</span> <span class="n">nest_ids</span><span class="p">):</span>
+                        <span class="n">virt_node_map</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">nest_id</span>
+                        <span class="n">set_spikes</span><span class="p">(</span><span class="n">node_id</span><span class="o">=</span><span class="n">node_id</span><span class="p">,</span> <span class="n">nest_id</span><span class="o">=</span><span class="n">nest_id</span><span class="p">,</span> <span class="n">spike_trains</span><span class="o">=</span><span class="n">spike_trains</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_virtual_ids_map</span><span class="p">[</span><span class="n">node_pop</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">virt_node_map</span>
+
+        <span class="c1"># Create virtual synaptic connections</span>
+        <span class="k">for</span> <span class="n">source_reader</span> <span class="ow">in</span> <span class="n">src_nodes</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">edge_pop</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_edges</span><span class="p">(</span><span class="n">source_nodes</span><span class="o">=</span><span class="n">source_reader</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edge_pop</span><span class="o">.</span><span class="n">get_edges</span><span class="p">():</span>
+                    <span class="n">nest_trgs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gid_map</span><span class="o">.</span><span class="n">get_nestids</span><span class="p">(</span><span class="n">edge_pop</span><span class="o">.</span><span class="n">target_nodes</span><span class="p">,</span> <span class="n">edge</span><span class="o">.</span><span class="n">target_node_ids</span><span class="p">)</span>
+                    <span class="n">nest_srcs</span> <span class="o">=</span> <span class="n">virt_gid_map</span><span class="o">.</span><span class="n">get_nestids</span><span class="p">(</span><span class="n">edge_pop</span><span class="o">.</span><span class="n">source_nodes</span><span class="p">,</span> <span class="n">edge</span><span class="o">.</span><span class="n">source_node_ids</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]):</span>
+                        <span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nest_srcs</span><span class="p">),</span>
+                                                             <span class="n">fill_value</span><span class="o">=</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_nest_connect</span><span class="p">(</span><span class="n">nest_srcs</span><span class="p">,</span> <span class="n">nest_trgs</span><span class="p">,</span> <span class="n">conn_spec</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">,</span> <span class="n">syn_spec</span><span class="o">=</span><span class="n">edge</span><span class="o">.</span><span class="n">nest_params</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_nest_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nest_srcs</span><span class="p">,</span> <span class="n">nest_trgs</span><span class="p">,</span> <span class="n">conn_spec</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">,</span> <span class="n">syn_spec</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calls nest.Connect but with some extra error logging and exception handling.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">nest</span><span class="o">.</span><span class="n">Connect</span><span class="p">(</span><span class="n">nest_srcs</span><span class="p">,</span> <span class="n">nest_trgs</span><span class="p">,</span> <span class="n">conn_spec</span><span class="o">=</span><span class="n">conn_spec</span><span class="p">,</span> <span class="n">syn_spec</span><span class="o">=</span><span class="n">syn_spec</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">nest</span><span class="o">.</span><span class="n">kernel</span><span class="o">.</span><span class="n">NESTErrors</span><span class="o">.</span><span class="n">BadDelay</span> <span class="k">as</span> <span class="n">bde</span><span class="p">:</span>
+            <span class="c1"># An occuring issue is when dt &gt; delay, add some extra messaging in log to help users fix problem.</span>
+            <span class="n">res_kernel</span> <span class="o">=</span> <span class="n">nest</span><span class="o">.</span><span class="n">GetKernelStatus</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+            <span class="n">delay_edges</span> <span class="o">=</span> <span class="n">syn_spec</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;delay&#39;</span><span class="p">,</span> <span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;synaptic &quot;delay&quot; value in edges (</span><span class="si">{}</span><span class="s1">) is not compatible with simulator resolution/&quot;dt&quot; (</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">delay_edges</span><span class="p">,</span> <span class="n">res_kernel</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bde</span><span class="o">.</span><span class="n">errorname</span><span class="p">,</span> <span class="n">bde</span><span class="o">.</span><span class="n">errormessage</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="c1"># Record exception to log file.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">log_error</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="k">raise</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

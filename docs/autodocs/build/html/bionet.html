@@ -1,0 +1,891 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BioNet &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=58fbf978"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bionet';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">BioNet</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bionet">
+<h1>BioNet<a class="headerlink" href="#bionet" title="Link to this heading">#</a></h1>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/bmtk_architecture_bionet_highlight.jpg"><img alt="_images/bmtk_architecture_bionet_highlight.jpg" src="_images/bmtk_architecture_bionet_highlight.jpg" style="width: 433.6px; height: 167.20000000000002px;" />
+</a>
+</figure>
+<p>BioNet is a high-level interface to <a class="reference external" href="http://neuron.yale.edu/neuron/">NEURON</a> that facilitates simulations of
+large-scale networks of multicompartmental neurons. Some of its main features include:</p>
+<ul class="simple">
+<li><p>Automatically integrates MPI for parallel simulations without the need for extra coding.</p></li>
+<li><p>Supports models and morphologies from the Allen <a class="reference external" href="http://celltypes.brain-map.org/data">Cell-Types Database</a>, as well
+as custom hoc and NeuroML2 cell and synapse models.</p></li>
+<li><p>Use spike-trains, synaptic connections, current clamps, or even extracellular stimulation to drive network firing.</p></li>
+<li><p>Can simulate extracellular field recordings.</p></li>
+</ul>
+<section id="inputs">
+<h3>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h3>
+<p>Inputs can be specified in the “inputs” sections of the <a class="reference external" href="./simulators.html#configuration-files">simulation config</a>,
+following the rules specified in the <a class="reference external" href="https://github.com/AllenInstitute/sonata">SONATA Data format</a>.</p>
+<section id="sonata-spike-trains">
+<h4>SONATA Spike-Trains<a class="headerlink" href="#sonata-spike-trains" title="Link to this heading">#</a></h4>
+<p>The modeler may wish to have certain cells in the circuit generate a pre-arranged series of spikes to drive the network.
+These cells must have <code class="docutils literal notranslate"><span class="pre">model_type</span></code> value <code class="docutils literal notranslate"><span class="pre">virtual</span></code> and are not actual cell objects (you can’t record from them). You
+may use either a <a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#spike-file">SONATA spike file</a>,
+an NWB file, or a space-separated CSV file with columns <strong>node_id</strong>, <strong>population</strong>, and <strong>timestamps</strong>. The following
+shows some examples of how to generate <a class="reference external" href="./analyzer.html#creating-spike-trains">spike-train files using bmtk</a>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LGN_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sonata&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./inputs/lgn_spikes.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lgn&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>module:  either sonata, hdf5, CSV, or nwb: depending on the format of the spikes file</p></li>
+<li><p><a class="reference external" href="./simulators.html#node-sets">node_set</a>: used to filter which cells will receive the inputs</p></li>
+<li><p>input_file: path to file contain spike-trains for one or mode node</p></li>
+</ul>
+</section>
+<section id="id1">
+<h4><a class="reference external" href="ecephys_probe.html">Extracelluar ElectroPhysiology (ECEPhys) Probe Data (NWB 2.0) Spikes</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>An increasing number of ECEPhys electrode experimental data is being release to the public in NWB format, such as the
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">Allen Visual Coding - Neuropixels</a> dataset or through
+<a class="reference external" href="https://dandiarchive.org/">DANDI</a>. While it is possible to manually convert this data into SONATA spike-trains to
+encorpate into your simulations, the <cite>ecephys_probe</cite> spikes module can do this automatically; fetching spikes from ECEPhys units
+and converting them to virtual cells for network input into your model.</p>
+<p>For example, using a session NWB downloaded using the AllenSDK, the below example wil randomly l map “LGd” cells from the session onto our
+“LGN” population, and filter out only spikes that occur between 10.0 and 12.0 seconds</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LGN_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecephys_probe&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./session_715093703.nwb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGN&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGd&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">12000.0</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="ecephys_probe.html">documentation</a> for more information and advanced features.</p>
+</section>
+<section id="id2">
+<h4><a class="reference external" href="current_clamps.html">Current Clamps</a><a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>May use one step current clamp-on multiple nodes, or have one node receive multiple current injections. Currently ;)
+only support injections at the soma.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;current_clamp_1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;current_clamp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IClamp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;biophys_cells&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;amp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1500</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;delay&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="current_clamps.html">documentation</a> for more details on using current clamp inputs.</p>
+</section>
+<section id="voltage-clamp">
+<h4>Voltage Clamp<a class="headerlink" href="#voltage-clamp" title="Link to this heading">#</a></h4>
+</section>
+<section id="extracellular-stimulation">
+<h4>Extracellular Stimulation<a class="headerlink" href="#extracellular-stimulation" title="Link to this heading">#</a></h4>
+<p>Allows for a set of external electrodes to provide a continuous stimulation in the neuropil. Requires a space-separated CSV file with one row for each electrode:</p>
+<div class="highlight-text notranslate" id="xstim-electrode-csv"><div class="highlight"><pre><span></span>ip pos_x pos_y pos_z rotation_x rotation_y rotation_z
+0 6.1803398874989481 0.0 19.021130325903069 0.0 0.0 0.0
+</pre></div>
+</div>
+<p>And in the configuration file</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;extra_stim&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lfp&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xstim&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;positions_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./inputs/xstim_electrode.csv&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;resistance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">300.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;waveform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;shape&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sin&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;del&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;amp&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.100</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;dur&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2000.0</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;freq&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.0</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>module:  Always xstim</p></li>
+<li><p><a class="reference external" href="./simulators.html#node-sets">node_set</a>: used to filter which cells will receive the inputs</p></li>
+<li><p>positions_file: space separated file containing cartesian coordinates of the electrodes.</p></li>
+<li><p>resistance: extracellular resistance between electrode and cells in Ohms / cm^3 (default: 300.0)</p></li>
+<li><p>waveform: form of the input, requires arguments “shape”, “amp” (in pA), “del” (delay in ms) and “dur” (duration in ms). Shape may either be “dc” or “sin” (with optional arguments “freq”, “phase” and “offset”)</p></li>
+</ul>
+</section>
+<section id="spontaneous-firing">
+<h4>Spontaneous Firing<a class="headerlink" href="#spontaneous-firing" title="Link to this heading">#</a></h4>
+</section>
+</section>
+<section id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h3>
+<section id="spikes">
+<h4>Spikes<a class="headerlink" href="#spikes" title="Link to this heading">#</a></h4>
+<p>By default, all non-virtual cells in the circuit will have all their spikes at the soma recorded. The “spike_threadhold”
+the parameter in the “run” block of the simulation config is used to determine what counts as a spike for a conductance model
+cell.</p>
+</section>
+<section id="membrane-and-intracellular-variables">
+<h4>Membrane and Intracellular Variables<a class="headerlink" href="#membrane-and-intracellular-variables" title="Link to this heading">#</a></h4>
+<p>Used to record the time trace of specific cell variables, usually the membrane potential (v). For multi-compartmental
+cells the report can record from any segment that contains mechanics for the desired variable. See
+<a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#simulation-output---reports">SONATA docs</a>
+for more information about how multi-segment recordings are represented.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;calcium_concentration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;membrane_report&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;biophysical&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cai&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;soma&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;file_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cai_traces.h5&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;membrane_potential&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;membrane_report&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;node_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">]},</span>
+<span class="w">        </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;file_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cai_traces.h5&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>variable_name: name of the variable being recorded, will depend on the cell model</p></li>
+<li><p>cells: a <a class="reference external" href="./simulators.html#node-sets">node_set</a> to filter out what cells to record.</p></li>
+<li><p>sections: either “all”, “soma”, “basal” or “apical”</p></li>
+<li><p>file_name: name of the file where traces will be recorded, under the “output_dir”. If not specified the report title
+will be used, eg “calcium_concentration.h5” and “membrane_potential.h5”</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Disk space can be an issue when recording membrane variables. For large networks recording all segments or all cells, every 1-second simulation, can cause BMTK to try to write output files in the 100s of GB or even TB.</p>
+</div>
+</section>
+<section id="extracellular-potential">
+<h4>Extracellular Potential<a class="headerlink" href="#extracellular-potential" title="Link to this heading">#</a></h4>
+<p>Will simulate recording from an extracellular electrode placed in the neuropil. See
+<a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#extracellular-report">SONATA documentation</a>.
+Requires a space-separated CSV file to specify the location of each recording channel:</p>
+<div class="highlight-text notranslate" id="components-xelectrode-linear-probe-csv"><div class="highlight"><pre><span></span>channel x_pos y_pos z_pos
+0 10.0 0 5.0
+1 10.0 -10 5.0
+2 10.0 -20 5.0
+3 10.0 -30 5.0
+4 10.0 -40 5.0
+</pre></div>
+</div>
+<p>And in the config</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ecp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;extracellular&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;electrode_positions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;components/xelectrode/linear_probe.csv&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;file_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecp.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;contributions_dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecp_contributions&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cells: a <a class="reference external" href="./simulators.html#node-sets">node_set</a> to filter out what cells will contribute to the ECP.</p></li>
+<li><p>variable_name: name of contributing variable, v for membrane potential</p></li>
+<li><p>electrode_positions: name of electrode placement file</p></li>
+<li><p>contributions_dir: The output ECP file will contain the combined contributions from all cells, and not possible to
+determine the ECP of each cell. But if “contributions_dir” is specified it will also record and save each
+cells’ ECP.</p></li>
+</ul>
+</section>
+<section id="synaptic-variables">
+<h4>Synaptic Variables<a class="headerlink" href="#synaptic-variables" title="Link to this heading">#</a></h4>
+<p>Similar to recording from membrane potential, by setting <code class="docutils literal notranslate"><span class="pre">module</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">netcon_report</span></code> you can record the
+variables from a synapse. The output is similar to a
+<a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#frame-oriented-node-element-recordings">SONATA membrane report</a>,
+but instead of each column being a segment of a neuron, each column represents a different synapse.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;syn_report&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;model_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;biophysical&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;variable_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tau1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;netcon_report&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;soma&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;syn_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Exp2Syn&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-options">
+<h3>Advanced Options<a class="headerlink" href="#advanced-options" title="Link to this heading">#</a></h3>
+<section id="specifying-synapse-locations">
+<h4>Specifying Synapse locations<a class="headerlink" href="#specifying-synapse-locations" title="Link to this heading">#</a></h4>
+<p>In SONATA the location of each synapse is determined by the
+<a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#edges---required-attributes">“afferent_section_id” and “afferent_section_pos” attributes</a>,
+which requires modelers to know how NEURON parses the morphology of each cell. If these parameters are specified in the edges file
+SONATA will use them to place a synapse on the target.</p>
+<p>Alternatively, BMTK supports the optional parameters “distance_range” and “target_sections”, which are present in the edges
+file, which will direct BMTK to randomly choose a target synapse location under the limitations. Here “target_setions” refers
+to a neuronal area (somatic, axon, apical, basal), and “”istance_range” is the minimum and maximum arc-length distance
+(in um) from the soma to place the synapse. For example to specify synapses be created either at the soma or nearby
+basal dendrites:</p>
+<div class="highlight-text notranslate" id="edge-type-csv"><div class="highlight"><pre><span></span>edge_type_id distance_range target_sections ...
+100 &quot;[0.0, 100.0]&quot; &quot;[&#39;somatic&#39;, &#39;basal&#39;]&quot; ...
+</pre></div>
+</div>
+<p>Using parameters “distance_range” and “target_sections” will speed up the instantiation by a bit. And has the benefit
+that the modeler doesn’t need to know the full details of the target_morphology. It may cause results to vary, but in
+our experience for large-networks usually don’t change the dynamics.</p>
+</section>
+<section id="replaying-recurrent-activity-without-inputs">
+<h4>Replaying recurrent activity without inputs<a class="headerlink" href="#replaying-recurrent-activity-without-inputs" title="Link to this heading">#</a></h4>
+<p>Most of the times when we are running a simulation of a recurrently-connected network, the network is being stimulated
+by some non-recurrent source; like a voltage clamp, current clamp, extraceullar pulse, or being syanptically driven
+by a pre-recorded spike-trains (eg, virtual cells). Thus the firing-times/voltage potentials of our network cells are
+being driven by two primary sources; external inputs and synaptic/electrical activity from other cells in the network.
+Being able to separate the contributions of the two type of drivers is often important for analysis of our network.</p>
+<p>Being able to see how our network behaves without recurrent connections is usually trivial to implement using the SONATA
+configuration file. For example, a network called “internal” might have both internal-to-internal recurrent connections
+and external-to-internal connections as represented in the “networks” section of the config</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;networks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;nodes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_nodes.h5&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;node_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_node_types.csv&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nodes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_nodes.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_node_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;edges_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edges.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;edge_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edge_types.csv&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;edges_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_internal_edges.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;edge_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_internal_edge_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To run the simulation without the recurrent internal-to-internal connections we just need to remove the relevant
+SONATA network files:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;networks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nodes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_nodes.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_node_types.csv&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nodes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_nodes.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_node_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;edges_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_internal_edges.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;edge_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/external_internal_edge_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Plotting the spikes raster we can see how the network behaves without recurrent connections (right) vs. the normal
+fully connected simulation (left):</p>
+<img alt="_images/disconnected_normal_sims.png" src="_images/disconnected_normal_sims.png" />
+<p>But what if we want to rerun the full simulation but without the external inputs, how see how only the recurrent
+activity affects the full simulation? To do so we must use a special <strong>“replay”</strong> input module. In the
+“inputs” section of the config we add the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recurrent_replay&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replay_spikes&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replay&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;spikes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$PREV_RESULTS_DIR/spikes.h5&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;edges_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edges.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;edge_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edge_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>Here we have</dt><dd><ul class="simple">
+<li><p>“<em>recurrent_replay</em>” is the name of this specific input and can be changed to whatever we like.</p></li>
+<li><p><strong>input_type</strong> and <strong>module</strong> are always set to <em>replay_spikes</em> and <em>replay</em>, respecitively, to direct bmtk as to the type of input/module being used.</p></li>
+<li><p><strong>spikes_file</strong> is the name of the recurrent spiking activity we want to replay when we rerun the simulation. In this case it is the locations of the output spikes results when we ran the fully connected simulation.</p></li>
+<li><p><strong>edges</strong> is the location of the edges and edge-types SONATA network files, in this case it is the files containing the recurrent internal-to-internal connections.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Then we update the “networks” section since we don’t want to have any external-to-internal type connections:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;networks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nodes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_nodes.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;node_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_node_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And we can run the simulation with the updated config and see what the network looks like when activity is only being
+drived by recurrent activity</p>
+<img alt="_images/disconnected_recurrent_only.png" src="_images/disconnected_recurrent_only.png" />
+<p>The module also has optional arguments <strong>source_node_set</strong> and <strong>target_node_set</strong> which allows us to rerun recurrent
+connections, but only on edges where the source (pre-synaptic) and target (post-synaptic) cells meet certain criteria.
+For example, we only want to run simulation on edges where the target cells are “biophysically-detailed Scnn1a” cells
+and the source cells are either “Scnn1a”, “Rorb”, or “Nr5a1” cell-types.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;recurrent_replay&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replay_spikes&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replay&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;spikes_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$PREV_RESULTS_DIR/spikes.h5&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;source_node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;model_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Scnn1a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Rorb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Nr5a1&quot;</span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;target_node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;internal&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;model_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scnn1a&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;model_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;biophysical&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;edges&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;edges_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edges.h5&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;edge_types_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$NETWORK_DIR/internal_internal_edge_types.csv&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="_images/disconnected_scnn1a.png" src="_images/disconnected_scnn1a.png" />
+<p>You can combine “replay” inputs with virtual inputs, current and voltage clamps. And you can have multiple
+“replay” inputs in the same simulation by adding multiple subsections in the “inputs” sections of the config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;replay_1&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;input_type&quot;</span><span class="p">:</span> <span class="s2">&quot;replay_spikes&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;replay&quot;</span><span class="p">,</span>
+      <span class="o">...</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;replay_1&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;input_type&quot;</span><span class="p">:</span> <span class="s2">&quot;replay_spikes&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;replay&quot;</span><span class="p">,</span>
+      <span class="o">...</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="https://github.com/AllenInstitute/bmtk/tree/develop/examples/bio_450cells_replay">examples/bio_450cells_replay/</a>
+folder for examples of running replayed simulations.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basics">Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inputs">Inputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sonata-spike-trains">SONATA Spike-Trains</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Extracelluar ElectroPhysiology (ECEPhys) Probe Data (NWB 2.0) Spikes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Current Clamps</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#voltage-clamp">Voltage Clamp</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extracellular-stimulation">Extracellular Stimulation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spontaneous-firing">Spontaneous Firing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs">Outputs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spikes">Spikes</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#membrane-and-intracellular-variables">Membrane and Intracellular Variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extracellular-potential">Extracellular Potential</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#synaptic-variables">Synaptic Variables</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-options">Advanced Options</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-synapse-locations">Specifying Synapse locations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#replaying-recurrent-activity-without-inputs">Replaying recurrent activity without inputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bionet.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

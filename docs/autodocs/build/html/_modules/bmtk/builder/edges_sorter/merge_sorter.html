@@ -1,0 +1,1034 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmtk.builder.edges_sorter.merge_sorter &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bmtk/builder/edges_sorter/merge_sorter';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../edges_sorter.html" class="nav-link">bmtk.builder.edges_sorter</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk.builder.edges_sorter.merge_sorter</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for bmtk.builder.edges_sorter.merge_sorter</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.utils.sonata.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_hdf5_magic</span><span class="p">,</span> <span class="n">add_hdf5_version</span>
+
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ProgressFile">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.builder.edges_sorter.html#bmtk.builder.edges_sorter.merge_sorter.ProgressFile">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProgressFile</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for keeping track of the progress of the sorting of the hdf5 edges files. Will write progress to disk, so</span>
+<span class="sd">    that if sorting fails we can still continue from where it left off.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">,</span> <span class="n">n_chunks</span><span class="p">,</span> <span class="n">sort_key</span><span class="p">,</span> <span class="n">root_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root_name</span> <span class="o">=</span> <span class="n">root_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span> <span class="o">=</span> <span class="n">cache_dir</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">progress_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s1">&#39;progress.json&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">progress_file</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">progress_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;initialized&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;n_edges&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;n_chunks&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;iteration&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sort_key</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;sort_key&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;chunk_files&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_indices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;chunk_indices&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;write_index&#39;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;completed&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+            <span class="c1"># Make sure original edges file or the chunking size hasn&#39;t changed since the progress was last saved, if</span>
+            <span class="c1"># so it can cause unforseen issues.</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">completed</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Already marked as complete.&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span> <span class="o">!=</span> <span class="n">n_edges</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n_edges=</span><span class="si">{}</span><span class="s1"> has changed to </span><span class="si">{}</span><span class="s1">. Unable to continue sorting from last saved point.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span> <span class="o">!=</span> <span class="n">n_chunks</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n_chunks=</span><span class="si">{}</span><span class="s1"> has changed to </span><span class="si">{}</span><span class="s1">. Unable to continue sorting from last saved point.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span><span class="p">,</span> <span class="n">n_chunks</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_key</span> <span class="o">!=</span> <span class="n">sort_key</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;sort_key=</span><span class="si">{}</span><span class="s1"> has changed to </span><span class="si">{}</span><span class="s1">. Unable to continue from last saved point.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sort_key</span><span class="p">,</span> <span class="n">sort_key</span>
+                <span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span> <span class="o">=</span> <span class="n">n_edges</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span> <span class="o">=</span> <span class="n">n_chunks</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sort_key</span> <span class="o">=</span> <span class="n">sort_key</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_files</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_indices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_index</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_can_serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="ProgressFile.update">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.builder.edges_sorter.html#bmtk.builder.edges_sorter.merge_sorter.ProgressFile.update">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initialized</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_edges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_chunks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">chunk_files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">chunk_indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">write_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">completed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">initialized</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span> <span class="o">=</span> <span class="n">initialized</span>
+        <span class="k">if</span> <span class="n">n_edges</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span> <span class="o">=</span> <span class="n">n_edges</span>
+        <span class="k">if</span> <span class="n">n_chunks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span> <span class="o">=</span> <span class="n">n_chunks</span>
+        <span class="k">if</span> <span class="n">iteration</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="n">iteration</span>
+        <span class="k">if</span> <span class="n">chunk_files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_files</span> <span class="o">=</span> <span class="n">chunk_files</span>
+        <span class="k">if</span> <span class="n">chunk_indices</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chunk_indices</span> <span class="o">=</span> <span class="n">chunk_indices</span>
+        <span class="k">if</span> <span class="n">write_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">write_index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">completed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="o">=</span> <span class="n">completed</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;initialized&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;n_edges&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_edges</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;n_chunks&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_chunks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;iteration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;sort_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;chunk_files&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_files</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;chunk_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_indices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;write_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">write_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">root_name</span><span class="p">][</span><span class="s1">&#39;completed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">completed</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_serialize</span><span class="p">():</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_conf_parser</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">progress_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unable to serialize to json&#39;</span><span class="p">)</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_chunk_fn</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">itr_num</span><span class="p">,</span> <span class="n">chunk_num</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s1">&#39;itr</span><span class="si">{}</span><span class="s1">_chunk</span><span class="si">{}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">itr_num</span><span class="p">,</span> <span class="n">chunk_num</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_copy_attributes</span><span class="p">(</span><span class="n">in_grp</span><span class="p">,</span> <span class="n">out_grp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recursively copy hdf5 Group/Dataset attributes from in_grp to out_grp</span>
+
+<span class="sd">    :param in_grp: hdf5 Group object whose attributes will be copied from.</span>
+<span class="sd">    :param out_grp: hdf5 Group object that will have it&#39;s attributes updated/copied to.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">in_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">:</span>
+        <span class="n">out_grp</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">in_grp</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">in_name</span><span class="p">,</span> <span class="n">in_h5_obj</span> <span class="ow">in</span> <span class="n">in_grp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">in_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out_grp</span><span class="p">:</span>
+            <span class="c1"># make sure matching subgroup/dataset exists in the output group</span>
+            <span class="k">continue</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in_h5_obj</span><span class="p">,</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+            <span class="n">out_grp</span><span class="p">[</span><span class="n">in_name</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">in_h5_obj</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">in_h5_obj</span><span class="p">,</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">):</span>
+            <span class="n">_copy_attributes</span><span class="p">(</span><span class="n">in_h5_obj</span><span class="p">,</span> <span class="n">out_grp</span><span class="p">[</span><span class="n">in_name</span><span class="p">])</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_create_output_h5</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">edges_root</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">,</span> <span class="n">compression</span><span class="p">):</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;r+&#39;</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;w&#39;</span>
+    <span class="n">out_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">root_grp</span> <span class="o">=</span> <span class="n">out_h5</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">edges_root</span><span class="p">)</span> <span class="k">if</span> <span class="n">edges_root</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out_h5</span> <span class="k">else</span> <span class="n">out_h5</span><span class="p">[</span><span class="n">edges_root</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="s1">&#39;source_node_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span><span class="p">:</span>
+        <span class="n">root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">n_edges</span><span class="p">,</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;target_node_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span><span class="p">:</span>
+        <span class="n">root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">n_edges</span><span class="p">,</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;edge_type_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span><span class="p">:</span>
+        <span class="n">root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">n_edges</span><span class="p">,</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;edge_group_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span><span class="p">:</span>
+        <span class="n">root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">n_edges</span><span class="p">,</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;edge_group_index&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span><span class="p">:</span>
+        <span class="n">root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">n_edges</span><span class="p">,</span> <span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="c1"># with h5py.File(input_file, &#39;r&#39;) as in_h5:</span>
+    <span class="c1">#     for h5obj in in_h5[edges_root].values():</span>
+    <span class="c1">#         if isinstance(h5obj, h5py.Group) and h5obj.name not in root_grp:</span>
+    <span class="c1">#             root_grp.copy(h5obj, h5obj.name)</span>
+
+    <span class="n">_copy_attributes</span><span class="p">(</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">),</span> <span class="n">out_h5</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">root_grp</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_order_model_groups</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="n">output_edges_path</span><span class="p">,</span> <span class="n">edges_population</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    :param input_edges_path:</span>
+<span class="sd">    :param output_edges_path:</span>
+<span class="sd">    :param edges_population:</span>
+<span class="sd">    :param chunk_size:</span>
+<span class="sd">    :return:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># The output hdf5 should already have edges_group_id, edges_group_index columns which we can use to find order. This</span>
+    <span class="c1"># hdf5 file handle should only be for reading</span>
+
+    <span class="c1"># Get the model parameters from the input (original) edges file.</span>
+    <span class="n">in_edges_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">in_edges_grp</span> <span class="o">=</span> <span class="n">in_edges_h5</span><span class="p">[</span><span class="n">edges_population</span><span class="p">]</span>
+
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">output_edges_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_h5</span><span class="p">:</span>
+        <span class="n">out_root_grp</span> <span class="o">=</span> <span class="n">out_h5</span><span class="p">[</span><span class="n">edges_population</span><span class="p">]</span>
+
+        <span class="c1"># Get a list of all model group columns that need to be resorted, create the dataset in the output hdf5 edges</span>
+        <span class="c1"># file if it doesn&#39;t exist</span>
+        <span class="n">model_grp_tracker</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">h5name</span><span class="p">,</span> <span class="n">h5obj</span> <span class="ow">in</span> <span class="n">in_edges_grp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">h5obj</span><span class="p">,</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">)</span> <span class="ow">and</span> <span class="n">h5name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;indices&#39;</span><span class="p">,</span> <span class="s1">&#39;indicies&#39;</span><span class="p">]:</span>
+                <span class="n">model_grp_tracker</span><span class="p">[</span><span class="n">h5name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;c_indx&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;cols&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+                <span class="k">for</span> <span class="n">col_name</span><span class="p">,</span> <span class="n">col_ds</span> <span class="ow">in</span> <span class="n">h5obj</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">model_grp_tracker</span><span class="p">[</span><span class="n">h5name</span><span class="p">][</span><span class="s1">&#39;cols&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col_name</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">col_ds</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out_h5</span><span class="p">:</span>
+                        <span class="n">out_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">col_ds</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">col_ds</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">col_ds</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="c1"># use edge_group_id and edge_group_index to sort the model group columns</span>
+        <span class="n">edge_group_ids_ds</span> <span class="o">=</span> <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">]</span>
+        <span class="n">edge_group_indices_ds</span> <span class="o">=</span> <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">]</span>
+        <span class="n">n_edges</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">edge_group_indices_ds</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;edge_group_index_sorted&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">out_root_grp</span><span class="p">:</span>
+            <span class="c1"># we will need to also need to keep track of the reordering and replace edge_group_index</span>
+            <span class="n">out_root_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span>
+                <span class="s1">&#39;edge_group_index_sorted&#39;</span><span class="p">,</span>
+                <span class="n">shape</span><span class="o">=</span><span class="n">edge_group_indices_ds</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">edge_group_indices_ds</span><span class="o">.</span><span class="n">dtype</span>
+            <span class="p">)</span>
+
+        <span class="n">chunk_idx_beg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">chunk_idx_beg</span> <span class="o">&lt;</span> <span class="n">n_edges</span><span class="p">:</span>
+            <span class="c1"># assuming we can&#39;t load and sort the entire edge_group_id/edge_group_index tables into memory, we need to</span>
+            <span class="c1"># reorder into handable chunks</span>
+
+            <span class="n">chunk_idx_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">chunk_idx_beg</span> <span class="o">+</span> <span class="n">chunk_size</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">chunk_idx_beg</span> <span class="o">==</span> <span class="n">chunk_idx_end</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">chunk_grp_ids</span> <span class="o">=</span> <span class="n">edge_group_ids_ds</span><span class="p">[</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">][()]</span>
+            <span class="n">chunk_grp_idxs</span> <span class="o">=</span> <span class="n">edge_group_indices_ds</span><span class="p">[</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">][()]</span>
+            <span class="n">updated_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">chunk_idx_end</span><span class="o">-</span><span class="n">chunk_idx_beg</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+
+            <span class="c1"># Go through all the groups and all their columns and reorder by group_id only</span>
+            <span class="k">for</span> <span class="n">group_id</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">chunk_grp_ids</span><span class="p">):</span>
+                <span class="c1"># the order they appear in group_index is the order the columns will be resorted</span>
+                <span class="n">group_id_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">chunk_grp_ids</span> <span class="o">==</span> <span class="n">group_id</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+                <span class="n">new_index_order</span> <span class="o">=</span> <span class="n">chunk_grp_idxs</span><span class="p">[</span><span class="n">group_id_mask</span><span class="p">]</span>
+
+                <span class="c1"># If new_index_order is not sorted h5py will complain when we try to fetch those values in the index.</span>
+                <span class="c1"># Use nio_incremental to fetch from the datasets and nio_argwhere to put back into the right order</span>
+                <span class="n">nio_incremental</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">new_index_order</span><span class="p">)</span>
+                <span class="n">nio_argswhere</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">new_index_order</span><span class="p">)</span>
+
+                <span class="c1"># for each column take values from in_edges and write them to out_edges in the correct order</span>
+                <span class="n">group_indx_beg</span> <span class="o">=</span> <span class="n">model_grp_tracker</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group_id</span><span class="p">)][</span><span class="s1">&#39;c_indx&#39;</span><span class="p">]</span>
+                <span class="n">group_indx_end</span> <span class="o">=</span> <span class="n">group_indx_beg</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_index_order</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">model_grp_tracker</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group_id</span><span class="p">)][</span><span class="s1">&#39;cols&#39;</span><span class="p">]:</span>
+                    <span class="n">col_vals_tmp</span> <span class="o">=</span> <span class="n">in_edges_grp</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group_id</span><span class="p">)][</span><span class="n">col</span><span class="p">][</span><span class="n">nio_incremental</span><span class="p">]</span>
+                    <span class="n">col_vals</span> <span class="o">=</span> <span class="n">col_vals_tmp</span><span class="p">[</span><span class="n">nio_argswhere</span><span class="p">]</span>
+                    <span class="n">out_root_grp</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group_id</span><span class="p">)][</span><span class="n">col</span><span class="p">][</span><span class="n">group_indx_beg</span><span class="p">:</span><span class="n">group_indx_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_vals</span>
+
+                <span class="n">model_grp_tracker</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">group_id</span><span class="p">)][</span><span class="s1">&#39;c_indx&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_indx_end</span>
+                <span class="n">updated_order</span><span class="p">[</span><span class="n">group_id_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">group_indx_beg</span><span class="p">,</span> <span class="n">group_indx_beg</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_index_order</span><span class="p">))</span>
+
+            <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index_sorted&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">updated_order</span>
+            <span class="n">chunk_idx_beg</span> <span class="o">=</span> <span class="n">chunk_idx_end</span>
+
+        <span class="k">del</span> <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">]</span>
+        <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index_sorted&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">out_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index_sorted&#39;</span><span class="p">]</span>
+
+        <span class="n">_copy_attributes</span><span class="p">(</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">),</span> <span class="n">out_h5</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_clean</span><span class="p">(</span><span class="n">progress</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">c_fn</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s1">&#39;itr*_chunk*.h5&#39;</span><span class="p">)):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">c_fn</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">progress_file</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_initialize_chunks</span><span class="p">(</span><span class="n">edges_file_path</span><span class="p">,</span> <span class="n">progress</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Splits the original hdf5 edges file into n_chunks individual files&quot;&quot;&quot;</span>
+    <span class="n">edges_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">edges_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">edges_root_grp</span> <span class="o">=</span> <span class="n">edges_h5</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">root_name</span><span class="p">]</span>
+
+    <span class="n">sort_key</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span>
+    <span class="n">n_edges</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">n_edges</span>
+    <span class="n">n_chunks</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">n_chunks</span>
+    <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">cache_dir</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Splitting </span><span class="si">{}</span><span class="s1"> into </span><span class="si">{}</span><span class="s1"> sorted chunks&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">edges_file_path</span><span class="p">,</span> <span class="n">n_chunks</span><span class="p">))</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_edges</span> <span class="o">/</span> <span class="n">n_chunks</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+
+    <span class="c1"># Split the edges table into N chunks, each chunk will be sorted (by the specified column) and the sorted table</span>
+    <span class="c1"># will be saved it&#39;s own tmp hdf5 file.</span>
+    <span class="c1"># Note: we don&#39;t have to keep track of subgroups since the edge_group_id w/</span>
+    <span class="c1"># edge_group_index column will still hold the valid line references</span>
+    <span class="n">chunk_idx_beg</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">chunk_idx_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">chunk_num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">chunk_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">chunk_indices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">chunk_idx_beg</span> <span class="o">&lt;</span> <span class="n">n_edges</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;  Chunk </span><span class="si">{}</span><span class="s1"> of </span><span class="si">{}</span><span class="s1"> [</span><span class="si">{:,}</span><span class="s1"> - </span><span class="si">{:,}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunk_num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_chunks</span><span class="p">,</span> <span class="n">chunk_idx_beg</span><span class="p">,</span> <span class="n">chunk_idx_end</span><span class="p">))</span>
+        <span class="c1"># TODO: should be more efficencent if we just sort the specified column and keep track of the sort_order</span>
+        <span class="c1">#   index for later.</span>
+        <span class="n">chunk_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;source_node_id&#39;</span><span class="p">:</span> <span class="n">edges_root_grp</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+            <span class="s1">&#39;target_node_id&#39;</span><span class="p">:</span> <span class="n">edges_root_grp</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+            <span class="s1">&#39;edge_type_id&#39;</span><span class="p">:</span> <span class="n">edges_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+            <span class="s1">&#39;edge_group_id&#39;</span><span class="p">:</span> <span class="n">edges_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+            <span class="s1">&#39;edge_group_index&#39;</span><span class="p">:</span> <span class="n">edges_root_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">]</span>
+        <span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">sort_key</span><span class="p">)</span>
+
+        <span class="n">chunk_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s1">&#39;itr</span><span class="si">{}</span><span class="s1">_chunk</span><span class="si">{}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">iteration</span><span class="p">,</span> <span class="n">chunk_num</span><span class="p">))</span>
+        <span class="n">chunk_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">chunk_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk_data_df</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">])</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk_data_df</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">])</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk_data_df</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">])</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk_data_df</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">])</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">chunk_data_df</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">])</span>
+
+        <span class="c1"># store the min/max sort-column value found in current chunk</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;min_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chunk_data_df</span><span class="p">[</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="n">max_id</span> <span class="o">=</span> <span class="n">chunk_data_df</span><span class="p">[</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;max_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_id</span>
+
+        <span class="c1"># For each unique id that is being sorted on, keep a list of how many times the id shows up in the current</span>
+        <span class="c1"># tmp chunk file</span>
+        <span class="n">id_counts</span> <span class="o">=</span> <span class="n">chunk_data_df</span><span class="p">[</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+        <span class="n">id_counts</span> <span class="o">=</span> <span class="n">id_counts</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">max_id</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;id_counts&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">id_counts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+
+        <span class="n">chunk_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk_file</span><span class="p">)</span>
+        <span class="n">chunk_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># chunk index is 0 b/c none of the data has been merged into the final file</span>
+
+        <span class="n">chunk_idx_beg</span> <span class="o">=</span> <span class="n">chunk_idx_end</span>
+        <span class="n">chunk_idx_end</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+        <span class="n">chunk_num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">initialized</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">chunk_files</span><span class="o">=</span><span class="n">chunk_files</span><span class="p">,</span> <span class="n">chunk_indices</span><span class="o">=</span><span class="n">chunk_indices</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_sort_chunks</span><span class="p">(</span><span class="n">progress</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Takes the M (usually N or N-1) sorted chunk files, splits and merges them into N new chunk files&quot;&quot;&quot;</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Resorting Chunks&#39;</span><span class="p">)</span>
+
+    <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">cache_dir</span>
+    <span class="n">itr_num</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">iteration</span>
+    <span class="n">n_chunks</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">n_chunks</span>
+
+    <span class="c1"># during the previous merge() process some of the rows of last iteration&#39;s sorted chunk file may have been merged</span>
+    <span class="c1"># into the final result. Use the chunk_indices variable to keep track of what row to use for creating the next</span>
+    <span class="c1"># sorted chunk files.</span>
+    <span class="n">chunk_files</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">chunk_files</span>
+    <span class="n">chunk_h5s</span> <span class="o">=</span> <span class="p">[</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">cf</span> <span class="ow">in</span> <span class="n">chunk_files</span><span class="p">]</span>
+    <span class="n">chunk_start_indices</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">chunk_indices</span>
+    <span class="n">chunk_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="n">h5</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">h5</span> <span class="ow">in</span> <span class="n">chunk_h5s</span><span class="p">]</span>
+    <span class="n">chunk_indices</span> <span class="o">=</span> <span class="p">{</span><span class="n">fn</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">c_start</span><span class="p">,</span> <span class="n">c_size</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n_chunks</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+                     <span class="k">for</span> <span class="n">fn</span><span class="p">,</span> <span class="n">c_start</span><span class="p">,</span> <span class="n">c_size</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chunk_files</span><span class="p">,</span> <span class="n">chunk_start_indices</span><span class="p">,</span> <span class="n">chunk_sizes</span><span class="p">)}</span>
+
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">chunk_indices</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="n">n_chunks</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">new_chunk_files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">new_chunk_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_chunks</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="c1"># loop through all the sorted chunk files created during the last iteration and divide them up into further chunks.</span>
+    <span class="c1"># Take and merge together the corresponding chunks of data into a new table, sort and save for the next round of</span>
+    <span class="c1"># merging,</span>
+    <span class="k">for</span> <span class="n">chunk_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_chunks</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;  Chunk </span><span class="si">{}</span><span class="s1"> of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">chunk_num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_chunks</span><span class="p">))</span>
+        <span class="n">combined_df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">chunk_fn</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunk_files</span><span class="p">):</span>
+            <span class="n">chunk_h5</span> <span class="o">=</span> <span class="n">chunk_h5s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">chunk_idx_beg</span> <span class="o">=</span> <span class="n">chunk_indices</span><span class="p">[</span><span class="n">chunk_fn</span><span class="p">][</span><span class="n">chunk_num</span><span class="p">]</span>
+            <span class="n">chunk_idx_end</span> <span class="o">=</span> <span class="n">chunk_indices</span><span class="p">[</span><span class="n">chunk_fn</span><span class="p">][</span><span class="n">chunk_num</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">chunk_idx_end</span> <span class="o">==</span> <span class="n">chunk_idx_beg</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+                <span class="s1">&#39;source_node_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+                <span class="s1">&#39;target_node_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+                <span class="s1">&#39;edge_type_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+                <span class="s1">&#39;edge_group_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">],</span>
+                <span class="s1">&#39;edge_group_index&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">][</span><span class="n">chunk_idx_beg</span><span class="p">:</span><span class="n">chunk_idx_end</span><span class="p">]</span>
+            <span class="p">})</span>
+            <span class="n">combined_df</span> <span class="o">=</span> <span class="n">data_df</span> <span class="k">if</span> <span class="n">combined_df</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">combined_df</span><span class="p">,</span> <span class="n">data_df</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">combined_df</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">combined_df</span> <span class="o">=</span> <span class="n">combined_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">)</span>
+
+        <span class="n">new_chunk_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s1">&#39;itr</span><span class="si">{}</span><span class="s1">_chunk</span><span class="si">{}</span><span class="s1">.h5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">itr_num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">chunk_num</span><span class="p">))</span>
+        <span class="n">new_chunk_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">new_chunk_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">])</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">])</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">])</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">])</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">combined_df</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">])</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;min_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+        <span class="n">max_id</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;max_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_id</span>
+
+        <span class="c1"># For each unique id that is being sorted on, keep a list of how many times the id shows up in the current</span>
+        <span class="c1"># tmp chunk file</span>
+        <span class="n">id_counts</span> <span class="o">=</span> <span class="n">combined_df</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+        <span class="n">id_counts</span> <span class="o">=</span> <span class="n">id_counts</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">RangeIndex</span><span class="p">(</span><span class="n">max_id</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">new_chunk_h5</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;id_counts&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">id_counts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+
+        <span class="n">new_chunk_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_chunk_file</span><span class="p">)</span>
+
+    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">iteration</span><span class="o">=</span><span class="n">itr_num</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">chunk_files</span><span class="o">=</span><span class="n">new_chunk_files</span><span class="p">,</span> <span class="n">chunk_indices</span><span class="o">=</span><span class="n">new_chunk_indices</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Deleteing old chunks&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c_fn</span> <span class="ow">in</span> <span class="n">chunk_files</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">c_fn</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Could not delete file </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c_fn</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_merge</span><span class="p">(</span><span class="n">progress</span><span class="p">,</span> <span class="n">edges_grp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Will merge data from  one or more sorted chunk files into the output file&quot;&quot;&quot;</span>
+
+    <span class="c1"># Create a table of min and max ids in each chunk file and sort. Using this table we can find overlaps, and when</span>
+    <span class="c1"># the max/max ids of one file doesn&#39;t overlap with another then it&#39;s safe to push that table to the output h5</span>
+    <span class="n">max_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">n_edges</span> <span class="o">/</span> <span class="n">progress</span><span class="o">.</span><span class="n">n_chunks</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+    <span class="n">chunk_files</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">chunk_files</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">chunk_indices</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">chunk_indices</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">chunk_nums</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">chunk_h5s</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">chunk_ids_min</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">chunk_ids_max</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">min_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="n">max_id</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">chunk_num</span><span class="p">,</span> <span class="n">chunk_file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chunk_files</span><span class="p">):</span>
+        <span class="n">h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">chunk_file</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+        <span class="n">chunk_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk_num</span><span class="p">)</span>
+        <span class="n">chunk_h5s</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h5</span><span class="p">)</span>
+        <span class="n">chunk_ids_min</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;min_id&#39;</span><span class="p">])</span>
+        <span class="n">chunk_ids_max</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;max_id&#39;</span><span class="p">])</span>
+        <span class="n">max_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">max_id</span><span class="p">,</span> <span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;max_id&#39;</span><span class="p">])))</span>
+        <span class="n">min_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">min_id</span><span class="p">,</span> <span class="n">h5</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;min_id&#39;</span><span class="p">])))</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Current status:&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;chunk file&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunk_files</span><span class="p">],</span>
+        <span class="s1">&#39;min_id&#39;</span><span class="p">:</span> <span class="n">chunk_ids_min</span><span class="p">,</span>
+        <span class="s1">&#39;max_id&#39;</span><span class="p">:</span> <span class="n">chunk_ids_max</span><span class="p">,</span>
+    <span class="p">}))</span>
+
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">max_id</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">h5</span> <span class="ow">in</span> <span class="n">chunk_h5s</span><span class="p">:</span>
+        <span class="n">id_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">h5</span><span class="p">[</span><span class="s1">&#39;id_counts&#39;</span><span class="p">])</span>
+        <span class="n">offsets</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">id_counts</span><span class="p">)]</span> <span class="o">+=</span> <span class="n">id_counts</span>
+
+    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">offsets</span><span class="p">)</span>
+    <span class="n">id_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">offsets</span><span class="p">,</span> <span class="n">max_size</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">),</span> <span class="n">min_id</span><span class="p">))</span>
+
+    <span class="n">collected_df</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">chunk_num</span><span class="p">,</span> <span class="n">chunk_h5</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chunk_nums</span><span class="p">,</span> <span class="n">chunk_h5s</span><span class="p">):</span>
+        <span class="n">read_beg_idx</span> <span class="o">=</span> <span class="n">chunk_indices</span><span class="p">[</span><span class="n">chunk_num</span><span class="p">]</span>
+        <span class="n">sort_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">chunk_h5</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:])</span>
+        <span class="n">id_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">sort_col</span> <span class="o">&lt;=</span> <span class="n">id_end</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">id_indices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">read_end_idx</span> <span class="o">=</span> <span class="n">id_indices</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;source_node_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:</span><span class="n">read_end_idx</span><span class="p">],</span>
+            <span class="s1">&#39;target_node_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:</span><span class="n">read_end_idx</span><span class="p">],</span>
+            <span class="s1">&#39;edge_type_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:</span><span class="n">read_end_idx</span><span class="p">],</span>
+            <span class="s1">&#39;edge_group_id&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:</span><span class="n">read_end_idx</span><span class="p">],</span>
+            <span class="s1">&#39;edge_group_index&#39;</span><span class="p">:</span> <span class="n">chunk_h5</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">][</span><span class="n">read_beg_idx</span><span class="p">:</span><span class="n">read_end_idx</span><span class="p">]</span>
+        <span class="p">})</span>
+        <span class="n">collected_df</span> <span class="o">=</span> <span class="n">data_df</span> <span class="k">if</span> <span class="n">collected_df</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">collected_df</span><span class="p">,</span> <span class="n">data_df</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">read_end_idx</span> <span class="o">==</span> <span class="n">chunk_size</span><span class="p">:</span>
+            <span class="n">chunk_indices</span><span class="p">[</span><span class="n">chunk_num</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">chunk_files</span><span class="p">[</span><span class="n">chunk_num</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">chunk_indices</span><span class="p">[</span><span class="n">chunk_num</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">read_end_idx</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">collected_df</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">collected_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;No ids collected.&#39;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">collected_df</span> <span class="o">=</span> <span class="n">collected_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">)</span>
+    <span class="n">n_collected</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">collected_df</span><span class="p">)</span>
+
+    <span class="n">write_beg_idx</span> <span class="o">=</span> <span class="n">progress</span><span class="o">.</span><span class="n">write_index</span>
+    <span class="n">write_end_idx</span> <span class="o">=</span> <span class="n">write_beg_idx</span> <span class="o">+</span> <span class="n">n_collected</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Writing ids [</span><span class="si">{:,}</span><span class="s1"> - </span><span class="si">{:,}</span><span class="s1">] to output indices [</span><span class="si">{:,}</span><span class="s1"> - </span><span class="si">{:,}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">collected_df</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">collected_df</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">sort_key</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">write_beg_idx</span><span class="p">,</span>
+        <span class="n">write_end_idx</span>
+    <span class="p">))</span>
+
+    <span class="n">edges_grp</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">][</span><span class="n">write_beg_idx</span><span class="p">:</span><span class="n">write_end_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">collected_df</span><span class="p">[</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">edges_grp</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">][</span><span class="n">write_beg_idx</span><span class="p">:</span><span class="n">write_end_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">collected_df</span><span class="p">[</span><span class="s1">&#39;target_node_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">edges_grp</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">][</span><span class="n">write_beg_idx</span><span class="p">:</span><span class="n">write_end_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">collected_df</span><span class="p">[</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">edges_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">][</span><span class="n">write_beg_idx</span><span class="p">:</span><span class="n">write_end_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">collected_df</span><span class="p">[</span><span class="s1">&#39;edge_group_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">edges_grp</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">][</span><span class="n">write_beg_idx</span><span class="p">:</span><span class="n">write_end_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">collected_df</span><span class="p">[</span><span class="s1">&#39;edge_group_index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">chunk_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunk_files</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="n">chunk_indices</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunk_indices</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">progress</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">chunk_files</span><span class="o">=</span><span class="n">chunk_files</span><span class="p">,</span> <span class="n">chunk_indices</span><span class="o">=</span><span class="n">chunk_indices</span><span class="p">,</span> <span class="n">write_index</span><span class="o">=</span><span class="n">write_end_idx</span><span class="p">,</span>
+                    <span class="n">completed</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="external_merge_sort">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.builder.edges_sorter.html#bmtk.builder.edges_sorter.merge_sorter.external_merge_sort">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">external_merge_sort</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="n">output_edges_path</span><span class="p">,</span> <span class="n">edges_population</span><span class="p">,</span> <span class="n">sort_by</span><span class="p">,</span> <span class="n">sort_model_properties</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">n_chunks</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">max_itrs</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="s1">&#39;.sort_cache&#39;</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Does an external merge sort on an input edges hdf5 file, saves value in new file. Usefull for large network</span>
+<span class="sd">    files where we are not able to load into memory.</span>
+
+<span class="sd">    Will split the original hdf5 into &lt;n_chunks&gt; chunks on the disk in cache_dir, Will sort each individual chunk</span>
+<span class="sd">    of data in memory, then perform a merge on all the chunks. For speed considers may try to do the chunking and</span>
+<span class="sd">    merging in multiple iterations.</span>
+
+<span class="sd">    Itermediate sorting results are saved in cache_dir (eg .sort_cache) and if the sorting fails or doesn&#39;t finish in</span>
+<span class="sd">    max_itrs, running this function again will continue where it last left off.</span>
+
+<span class="sd">    :param input_edges_path: path to original edges file</span>
+<span class="sd">    :param output_edges_path: path name of new file that will be created</span>
+<span class="sd">    :param edges_population:</span>
+<span class="sd">    :param sort_by: &#39;edge_type_id&#39;, &#39;source_node_id&#39;, etc.</span>
+<span class="sd">    :param sort_model_properties: resort the model group so edges_group_id+edge_group_index is in order</span>
+<span class="sd">    :param n_chunks: Number of chunks, eg the fraction of the edges.h5 file that will be loaded into memory at a given</span>
+<span class="sd">        time. (default: 12)</span>
+<span class="sd">    :param cache_dir: A temporary directory where itermeidate results will be stored. (default: &#39;./cache_dir/)</span>
+<span class="sd">    :param max_itrs: The maximum number of iterations to run the merge sort.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_h5</span><span class="p">:</span>
+        <span class="n">n_edges</span> <span class="o">=</span> <span class="n">input_h5</span><span class="p">[</span><span class="n">edges_population</span><span class="p">][</span><span class="s1">&#39;source_node_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">cache_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_edges_path</span><span class="p">),</span> <span class="n">cache_dir</span><span class="p">,</span>
+                             <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">output_edges_path</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">)</span>
+
+    <span class="n">n_chunks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">n_chunks</span><span class="p">,</span> <span class="n">n_edges</span><span class="p">))</span>
+    <span class="n">progress</span> <span class="o">=</span> <span class="n">ProgressFile</span><span class="p">(</span><span class="n">cache_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">,</span> <span class="n">n_edges</span><span class="o">=</span><span class="n">n_edges</span><span class="p">,</span> <span class="n">n_chunks</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">n_chunks</span><span class="p">),</span> <span class="n">root_name</span><span class="o">=</span><span class="n">edges_population</span><span class="p">,</span>
+                            <span class="n">sort_key</span><span class="o">=</span><span class="n">sort_by</span><span class="p">)</span>
+
+    <span class="n">output_root_grp</span> <span class="o">=</span> <span class="n">_create_output_h5</span><span class="p">(</span><span class="n">input_file</span><span class="o">=</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="n">output_edges_path</span><span class="p">,</span>
+                                        <span class="n">edges_root</span><span class="o">=</span><span class="n">edges_population</span><span class="p">,</span> <span class="n">n_edges</span><span class="o">=</span><span class="n">n_edges</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">compression</span><span class="p">)</span>
+
+    <span class="c1"># Split the edges files into N chunks.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">progress</span><span class="o">.</span><span class="n">initialized</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">):</span>
+        <span class="n">_initialize_chunks</span><span class="p">(</span><span class="n">edges_file_path</span><span class="o">=</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="n">progress</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Edges files has already been initialized. Continuing from last saved point&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Try to merge chunk data to output, if there&#39;s still data left split and resort into another N chunks. Repeat.</span>
+    <span class="n">_merge</span><span class="p">(</span><span class="n">progress</span><span class="p">,</span> <span class="n">edges_grp</span><span class="o">=</span><span class="n">output_root_grp</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_itrs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">progress</span><span class="o">.</span><span class="n">completed</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">_sort_chunks</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+        <span class="n">_merge</span><span class="p">(</span><span class="n">progress</span><span class="p">,</span> <span class="n">edges_grp</span><span class="o">=</span><span class="n">output_root_grp</span><span class="p">)</span>
+
+    <span class="n">output_root_grp</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">output_root_grp</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">progress</span><span class="o">.</span><span class="n">completed</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">sort_model_properties</span><span class="p">:</span>
+            <span class="c1"># copy over model group, and reorder so edge_group_ids/edge_group_index is ordered</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Sorting model group columns&#39;</span><span class="p">)</span>
+            <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">n_edges</span> <span class="o">/</span> <span class="n">n_chunks</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+            <span class="n">_order_model_groups</span><span class="p">(</span>
+                <span class="n">input_edges_path</span><span class="o">=</span><span class="n">input_edges_path</span><span class="p">,</span>
+                <span class="n">output_edges_path</span><span class="o">=</span><span class="n">output_edges_path</span><span class="p">,</span>
+                <span class="n">edges_population</span><span class="o">=</span><span class="n">progress</span><span class="o">.</span><span class="n">root_name</span><span class="p">,</span>
+                <span class="n">chunk_size</span><span class="o">=</span><span class="n">chunk_size</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Copy over model group columns without sorting</span>
+            <span class="n">out_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">output_edges_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+            <span class="n">root_grp</span> <span class="o">=</span> <span class="n">out_h5</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">root_name</span><span class="p">]</span>
+
+            <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">input_edges_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_h5</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">h5obj</span> <span class="ow">in</span> <span class="n">in_h5</span><span class="p">[</span><span class="n">progress</span><span class="o">.</span><span class="n">root_name</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">h5obj</span><span class="p">,</span> <span class="n">h5py</span><span class="o">.</span><span class="n">Group</span><span class="p">)</span> <span class="ow">and</span> <span class="n">h5obj</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">root_grp</span> <span class="ow">and</span> <span class="n">h5obj</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;indices&#39;</span><span class="p">,</span> <span class="s1">&#39;indicies&#39;</span><span class="p">]:</span>
+                        <span class="n">root_grp</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">h5obj</span><span class="p">,</span> <span class="n">h5obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s1">&#39;Merger Sort reached max iterations (</span><span class="si">{}</span><span class="s1">), did not complete resorting. Rerun to finish.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_itrs</span><span class="p">)</span>
+        <span class="p">)</span>
+    
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Cleaning up cache directory&#39;</span><span class="p">)</span>
+    <span class="n">_clean</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Done sorting.&#39;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">external_merge_sort</span><span class="p">(</span>
+        <span class="n">input_edges_path</span><span class="o">=</span><span class="s1">&#39;network/right_local_edges.h5&#39;</span><span class="p">,</span>
+        <span class="n">output_edges_path</span><span class="o">=</span><span class="s1">&#39;network/right_local_edges_by_edgetype_merge_sort_v1.h5&#39;</span><span class="p">,</span>
+        <span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;edge_type_id&#39;</span><span class="p">,</span>
+        <span class="n">edges_population</span><span class="o">=</span><span class="s1">&#39;/edges/right_local&#39;</span>
+    <span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

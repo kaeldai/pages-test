@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmtk.utils.io.cell_vars &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bmtk/utils/io/cell_vars';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../../../../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../io.html" class="nav-link">bmtk.utils.io</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk.utils.io.cell_vars</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for bmtk.utils.io.cell_vars</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">io</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.utils.sonata.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_hdf5_magic</span><span class="p">,</span> <span class="n">add_hdf5_version</span>
+
+
+<div class="viewcode-block" id="CellVarRecorder">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CellVarRecorder</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Used to save cell membrane variables (V, Ca2+, etc) to the described hdf5 format.</span>
+
+<span class="sd">    For parallel simulations this class will write to a seperate tmp file on each rank, then use the merge method to</span>
+<span class="sd">    combine the results. This is less efficent, but doesn&#39;t require the user to install mpi4py and build h5py in</span>
+<span class="sd">    parallel mode. For better performance use the CellVarRecorderParallel class instead.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_io</span> <span class="o">=</span> <span class="n">io</span>
+
+<div class="viewcode-block" id="CellVarRecorder.DataTable">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.DataTable">[docs]</a>
+    <span class="k">class</span><span class="w"> </span><span class="nc">DataTable</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A small struct to keep track of different \*/data (and buffer) tables&quot;&quot;&quot;</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_name</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="o">=</span> <span class="n">var_name</span>
+            <span class="c1"># If buffering data, buffer_block will be an in-memory array and will write to data_block during when</span>
+            <span class="c1"># filled. If not buffering buffer_block is an hdf5 dataset and data_block is ignored</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_block</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buffer_block</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">tmp_dir</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">buffer_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mpi_rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mpi_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="o">=</span> <span class="n">file_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_dir</span> <span class="o">=</span> <span class="n">tmp_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span> <span class="o">=</span> <span class="n">variables</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">variables</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_vars</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="p">)</span>  <span class="c1"># Used later to keep track if more than one var is saved to the same file.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mpi_rank</span> <span class="o">=</span> <span class="n">mpi_rank</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mpi_size</span> <span class="o">=</span> <span class="n">mpi_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_saved_file</span> <span class="o">=</span> <span class="n">file_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_population</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mpi_size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="o">.</span><span class="n">log_warning</span><span class="p">(</span><span class="s1">&#39;Was unable to run h5py in parallel (mpi) mode.&#39;</span> <span class="o">+</span>
+                                 <span class="s1">&#39; Saving of membrane variable(s) may slow down.&#39;</span><span class="p">)</span>
+            <span class="n">tmp_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>  <span class="c1"># make sure file names don&#39;t clash if there are multiple reports</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tmp_dir</span><span class="p">,</span> <span class="s1">&#39;__bmtk_tmp_cellvars_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">tmp_fname</span><span class="p">))</span>
+                               <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mpi_size</span><span class="p">)]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_files</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_mpi_rank</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_gids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list of gids in the order they appear in the data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># table for looking up the gid offsets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Used for additonal attributes in /mapping</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_ids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># sections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_pos</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># segments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># index_pointer</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_data</span> <span class="o">=</span> <span class="n">buffer_data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_blocks</span> <span class="o">=</span> <span class="p">{</span><span class="n">var_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">DataTable</span><span class="p">(</span><span class="n">var_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_save_indx</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># for buffering, used to keep track of last timestep data was saved to disk</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_block_size</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_total_steps</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Keep track of gids across the different ranks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_all</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Keep track of segment counts across the different ranks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tstart</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tstop</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_initialized</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tstart</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tstart</span>
+
+    <span class="nd">@tstart</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tstart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_ms</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tstart</span> <span class="o">=</span> <span class="n">time_ms</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tstop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tstop</span>
+
+    <span class="nd">@tstop</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tstop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_ms</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tstop</span> <span class="o">=</span> <span class="n">time_ms</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+
+    <span class="nd">@dt</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time_ms</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="n">time_ms</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_initialized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_initialized</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calc_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_all</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_h5_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">add_hdf5_version</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="p">)</span>
+        <span class="n">add_hdf5_magic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CellVarRecorder.add_cell">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.add_cell">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gid</span><span class="p">,</span> <span class="n">sec_list</span><span class="p">,</span> <span class="n">seg_list</span><span class="p">,</span> <span class="o">**</span><span class="n">map_attrs</span><span class="p">):</span>
+        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sec_list</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">seg_list</span><span class="p">))</span>
+        <span class="c1"># TODO: Check the same gid isn&#39;t added twice</span>
+        <span class="n">n_segs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seg_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span> <span class="o">+</span> <span class="n">n_segs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_gids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_ids</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">sec_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_pos</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">seg_list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mapping_index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">n_segs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span> <span class="o">+=</span> <span class="n">n_segs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">map_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.initialize">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.initialize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">buffer_size</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_calc_offset</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_h5_file</span><span class="p">()</span>
+
+        <span class="c1">#root_name = &#39;/report/{}&#39;.format(self._population) if self._population is not None else &#39;/&#39;</span>
+        <span class="n">var_grp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s1">&#39;/mapping&#39;</span><span class="p">)</span>
+        <span class="c1"># TODO: gids --&gt; node_ids</span>
+        <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;gids&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_all</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+        <span class="c1"># TODO: element_id --&gt; element_ids</span>
+        <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;element_id&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+        <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;element_pos&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;index_pointer&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_all</span><span class="o">+</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint64</span><span class="p">)</span>
+        <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">tstart</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tstop</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">])</span>
+        <span class="c1"># TODO: Let user determine value</span>
+        <span class="n">var_grp</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ms&#39;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">var_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="n">var_grp</span><span class="p">[</span><span class="s1">&#39;gids&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_gids</span>
+        <span class="n">var_grp</span><span class="p">[</span><span class="s1">&#39;element_id&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_ids</span>
+        <span class="n">var_grp</span><span class="p">[</span><span class="s1">&#39;element_pos&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_element_pos</span>
+        <span class="n">var_grp</span><span class="p">[</span><span class="s1">&#39;index_pointer&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span><span class="p">:(</span><span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_index</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">var_grp</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_total_steps</span> <span class="o">=</span> <span class="n">n_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_block_size</span> <span class="o">=</span> <span class="n">buffer_size</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_data</span><span class="p">:</span>
+            <span class="c1"># If data is not being buffered and instead written to the main block, we have to add a rank offset</span>
+            <span class="c1"># to the gid offset</span>
+            <span class="k">for</span> <span class="n">gid</span><span class="p">,</span> <span class="n">gid_offset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">gid_offset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span><span class="p">,</span> <span class="n">gid_offset</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">data_tables</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_blocks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># If users are trying to save multiple variables in the same file put data table in its own /{var} group</span>
+            <span class="c1"># (not sonata compliant). Otherwise the data table is located at the root</span>
+            <span class="n">data_grp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_vars</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var_name</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_data</span><span class="p">:</span>
+                <span class="c1"># Set up in-memory block to buffer recorded variables before writing to the dataset</span>
+                <span class="n">data_tables</span><span class="o">.</span><span class="n">buffer_block</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">buffer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+                <span class="n">data_tables</span><span class="o">.</span><span class="n">data_block</span> <span class="o">=</span> <span class="n">data_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span><span class="p">),</span>
+                                                                 <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="c1"># TODO: Remove Variable name</span>
+                <span class="n">data_tables</span><span class="o">.</span><span class="n">data_block</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;variable_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_name</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">data_tables</span><span class="o">.</span><span class="n">data_block</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_units</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Since we are not buffering data, we just write directly to the on-disk dataset</span>
+                <span class="n">data_tables</span><span class="o">.</span><span class="n">buffer_block</span> <span class="o">=</span> <span class="n">data_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span><span class="p">),</span>
+                                                                   <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">data_tables</span><span class="o">.</span><span class="n">buffer_block</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;variable_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_name</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">data_tables</span><span class="o">.</span><span class="n">buffer_block</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_units</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_initialized</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.record_cell">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.record_cell">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">record_cell</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gid</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">seg_vals</span><span class="p">,</span> <span class="n">tstep</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Record cell parameters.</span>
+
+<span class="sd">        :param gid: gid of cell.</span>
+<span class="sd">        :param var_name: name of variable being recorded.</span>
+<span class="sd">        :param seg_vals: list of all segment values</span>
+<span class="sd">        :param tstep: time step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid_beg</span><span class="p">,</span> <span class="n">gid_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span>
+        <span class="n">buffer_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_blocks</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">buffer_block</span>
+        <span class="n">update_index</span> <span class="o">=</span> <span class="p">(</span><span class="n">tstep</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_save_indx</span><span class="p">)</span>
+        <span class="n">buffer_block</span><span class="p">[</span><span class="n">update_index</span><span class="p">,</span> <span class="n">gid_beg</span><span class="p">:</span><span class="n">gid_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">seg_vals</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.record_cell_block">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.record_cell_block">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">record_cell_block</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gid</span><span class="p">,</span> <span class="n">var_name</span><span class="p">,</span> <span class="n">seg_vals</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save cell parameters one block at a time</span>
+
+<span class="sd">        :param gid: gid of cell.</span>
+<span class="sd">        :param var_name: name of variable being recorded.</span>
+<span class="sd">        :param seg_vals: A vector/matrix of values being recorded</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid_beg</span><span class="p">,</span> <span class="n">gid_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gid_map</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span>
+        <span class="n">buffer_block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_blocks</span><span class="p">[</span><span class="n">var_name</span><span class="p">]</span><span class="o">.</span><span class="n">buffer_block</span>
+        <span class="k">if</span> <span class="n">gid_end</span> <span class="o">-</span> <span class="n">gid_beg</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">buffer_block</span><span class="p">[:,</span> <span class="n">gid_beg</span><span class="p">]</span> <span class="o">=</span> <span class="n">seg_vals</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">buffer_block</span><span class="p">[:,</span> <span class="n">gid_beg</span><span class="p">:</span><span class="n">gid_end</span><span class="p">]</span> <span class="o">=</span> <span class="n">seg_vals</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.flush">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.flush">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Move data from memory to dataset&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_data</span><span class="p">:</span>
+            <span class="n">blk_beg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_save_indx</span>
+            <span class="n">blk_end</span> <span class="o">=</span> <span class="n">blk_beg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_block_size</span>
+            <span class="k">if</span> <span class="n">blk_end</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_steps</span><span class="p">:</span>
+                <span class="c1"># Need to handle the case that simulation doesn&#39;t end on a block step</span>
+                <span class="n">blk_end</span> <span class="o">=</span> <span class="n">blk_beg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_total_steps</span> <span class="o">-</span> <span class="n">blk_beg</span>
+
+            <span class="n">block_size</span> <span class="o">=</span> <span class="n">blk_end</span> <span class="o">-</span> <span class="n">blk_beg</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_save_indx</span> <span class="o">+=</span> <span class="n">block_size</span>
+
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">data_table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_blocks</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">data_table</span><span class="o">.</span><span class="n">data_block</span><span class="p">[</span><span class="n">blk_beg</span><span class="p">:</span><span class="n">blk_end</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">data_table</span><span class="o">.</span><span class="n">buffer_block</span><span class="p">[:</span><span class="n">block_size</span><span class="p">,</span> <span class="p">:]</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.close">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="CellVarRecorder.merge">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorder.merge">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mpi_size</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mpi_rank</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">h5final</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_saved_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+            <span class="n">tmp_h5_handles</span> <span class="o">=</span> <span class="p">[</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_files</span><span class="p">]</span>
+
+            <span class="c1"># Find the gid and segment offsets for each temp h5 file</span>
+            <span class="n">gid_ranges</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># list of (gid-beg, gid-end)</span>
+            <span class="n">gid_offset</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">total_gid_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># total number of gids across all ranks</span>
+
+            <span class="n">seg_ranges</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">seg_offset</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">total_seg_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># total number of segments across all ranks</span>
+            <span class="n">time_ds</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">h5_tmp</span> <span class="ow">in</span> <span class="n">tmp_h5_handles</span><span class="p">:</span>
+                <span class="n">seg_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">h5_tmp</span><span class="p">[</span><span class="s1">&#39;/mapping/element_pos&#39;</span><span class="p">])</span>
+                <span class="n">seg_ranges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">seg_offset</span><span class="p">,</span> <span class="n">seg_offset</span><span class="o">+</span><span class="n">seg_count</span><span class="p">))</span>
+                <span class="n">seg_offset</span> <span class="o">+=</span> <span class="n">seg_count</span>
+                <span class="n">total_seg_count</span> <span class="o">+=</span> <span class="n">seg_count</span>
+
+                <span class="n">gid_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">h5_tmp</span><span class="p">[</span><span class="s1">&#39;mapping/gids&#39;</span><span class="p">])</span>
+                <span class="n">gid_ranges</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">gid_offset</span><span class="p">,</span> <span class="n">gid_offset</span><span class="o">+</span><span class="n">gid_count</span><span class="p">))</span>
+                <span class="n">gid_offset</span> <span class="o">+=</span> <span class="n">gid_count</span>
+                <span class="n">total_gid_count</span> <span class="o">+=</span> <span class="n">gid_count</span>
+
+                <span class="n">time_ds</span> <span class="o">=</span> <span class="n">h5_tmp</span><span class="p">[</span><span class="s1">&#39;mapping/time&#39;</span><span class="p">]</span>
+
+            <span class="n">mapping_grp</span> <span class="o">=</span> <span class="n">h5final</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="s1">&#39;mapping&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">time_ds</span><span class="p">:</span>
+                <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">time_ds</span><span class="p">)</span>
+            <span class="n">element_id_ds</span> <span class="o">=</span> <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;element_id&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">total_seg_count</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+            <span class="n">el_pos_ds</span> <span class="o">=</span> <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;element_pos&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">total_seg_count</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="n">gids_ds</span> <span class="o">=</span> <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;gids&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">total_gid_count</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+            <span class="n">index_pointer_ds</span> <span class="o">=</span> <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="s1">&#39;index_pointer&#39;</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">total_gid_count</span><span class="o">+</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">mapping_grp</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">total_seg_count</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+            <span class="c1"># combine the /mapping datasets</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h5_tmp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tmp_h5_handles</span><span class="p">):</span>
+                <span class="n">tmp_mapping_grp</span> <span class="o">=</span> <span class="n">h5_tmp</span><span class="p">[</span><span class="s1">&#39;mapping&#39;</span><span class="p">]</span>
+                <span class="n">beg</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">seg_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">element_id_ds</span><span class="p">[</span><span class="n">beg</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_mapping_grp</span><span class="p">[</span><span class="s1">&#39;element_id&#39;</span><span class="p">]</span>
+                <span class="n">el_pos_ds</span><span class="p">[</span><span class="n">beg</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_mapping_grp</span><span class="p">[</span><span class="s1">&#39;element_pos&#39;</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_map_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">mapping_grp</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">beg</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+                <span class="c1"># shift the index pointer values</span>
+                <span class="n">index_pointer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tmp_mapping_grp</span><span class="p">[</span><span class="s1">&#39;index_pointer&#39;</span><span class="p">])</span>
+                <span class="n">update_index</span> <span class="o">=</span> <span class="n">beg</span> <span class="o">+</span> <span class="n">index_pointer</span>
+
+                <span class="n">beg</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">gid_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">gids_ds</span><span class="p">[</span><span class="n">beg</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_mapping_grp</span><span class="p">[</span><span class="s1">&#39;gids&#39;</span><span class="p">]</span>
+                <span class="n">index_pointer_ds</span><span class="p">[</span><span class="n">beg</span><span class="p">:(</span><span class="n">end</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="n">update_index</span>
+
+
+            <span class="c1"># combine the /var/data datasets</span>
+            <span class="k">for</span> <span class="n">var_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span><span class="p">:</span>
+                <span class="n">data_name</span> <span class="o">=</span> <span class="s1">&#39;/data&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_vars</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;/</span><span class="si">{}</span><span class="s1">/data&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var_name</span><span class="p">)</span>
+                <span class="c1"># data_name = &#39;/{}/data&#39;.format(var_name)</span>
+                <span class="n">var_data</span> <span class="o">=</span> <span class="n">h5final</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">data_name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_total_steps</span><span class="p">,</span> <span class="n">total_seg_count</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+                <span class="n">var_data</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;variable_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_name</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">h5_tmp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tmp_h5_handles</span><span class="p">):</span>
+                    <span class="n">beg</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">seg_ranges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                    <span class="n">var_data</span><span class="p">[:,</span> <span class="n">beg</span><span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">h5_tmp</span><span class="p">[</span><span class="n">data_name</span><span class="p">]</span>
+
+            <span class="k">for</span> <span class="n">tmp_file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tmp_files</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tmp_file</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="CellVarRecorderParallel">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorderParallel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">CellVarRecorderParallel</span><span class="p">(</span><span class="n">CellVarRecorder</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unlike the parent, this take advantage of parallel h5py to writting to the results file across different ranks.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">tmp_dir</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">buffer_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CellVarRecorder</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">tmp_dir</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">buffer_data</span><span class="o">=</span><span class="n">buffer_data</span><span class="p">,</span> <span class="n">mpi_rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                              <span class="n">mpi_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calc_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">mpi4py</span><span class="w"> </span><span class="kn">import</span> <span class="n">MPI</span>  <span class="c1"># Just needed for UNSIGNED_INT</span>
+        <span class="n">comm</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">bmtk_world_comm</span><span class="o">.</span><span class="n">comm</span>
+        <span class="n">rank</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_rank</span><span class="p">()</span>
+        <span class="n">nhosts</span> <span class="o">=</span> <span class="n">comm</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()</span>
+
+        <span class="c1"># iterate through the ranks let rank r determine the offset from rank r-1</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">comm</span><span class="o">.</span><span class="n">Get_size</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="n">r</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">rank</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">nhosts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                    <span class="c1"># pass the num of segments and num of gids to the next rank</span>
+                    <span class="n">offsets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+                    <span class="n">comm</span><span class="o">.</span><span class="n">Send</span><span class="p">([</span><span class="n">offsets</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">UNSIGNED_INT</span><span class="p">],</span> <span class="n">dest</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="n">rank</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="c1"># get num of segments and gids from prev. rank and calculate offsets</span>
+                    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+                    <span class="n">comm</span><span class="o">.</span><span class="n">Recv</span><span class="p">([</span><span class="n">offsets</span><span class="p">,</span> <span class="n">MPI</span><span class="o">.</span><span class="n">UNSIGNED_INT</span><span class="p">],</span> <span class="n">source</span><span class="o">=</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span> <span class="o">=</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_beg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_local</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span> <span class="o">=</span> <span class="n">offset</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gids_beg</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_local</span>
+
+            <span class="n">comm</span><span class="o">.</span><span class="n">Barrier</span><span class="p">()</span>
+
+        <span class="c1"># broadcast the total num of gids/segments from the final rank to all the others</span>
+        <span class="k">if</span> <span class="n">rank</span> <span class="o">==</span> <span class="p">(</span><span class="n">nhosts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">total_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_seg_offset_end</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_gids_end</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">total_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint</span><span class="p">)</span>
+
+        <span class="n">comm</span><span class="o">.</span><span class="n">Bcast</span><span class="p">(</span><span class="n">total_counts</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="p">(</span><span class="n">nhosts</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_segments_all</span> <span class="o">=</span> <span class="n">total_counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_gids_all</span> <span class="o">=</span> <span class="n">total_counts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_h5_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;mpio&#39;</span><span class="p">,</span> <span class="n">comm</span><span class="o">=</span><span class="n">io</span><span class="o">.</span><span class="n">bmtk_world_comm</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
+        <span class="n">add_hdf5_version</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="p">)</span>
+        <span class="n">add_hdf5_magic</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h5_handle</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CellVarRecorderParallel.merge">
+<a class="viewcode-back" href="../../../../bmtk/bmtk.utils.io.html#bmtk.utils.io.cell_vars.CellVarRecorderParallel.merge">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
