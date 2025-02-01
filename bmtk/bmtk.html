@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bmtk package &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bmtk/bmtk';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bmtk.analyzer.html">bmtk.analyzer package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.builder.html">bmtk.builder package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.auxi.html">bmtk.builder.auxi package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.bionet.html">bmtk.builder.bionet package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.edges_sorter.html">bmtk.builder.edges_sorter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.network_adaptors.html">bmtk.builder.network_adaptors package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.simulator.html">bmtk.simulator package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.bionet.html">bmtk.simulator.bionet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.bionet.default_setters.html">bmtk.simulator.bionet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.bionet.modules.html">bmtk.simulator.bionet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.core.html">bmtk.simulator.core package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.core.modules.html">bmtk.simulator.core.modules package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.core.sonata_reader.html">bmtk.simulator.core.sonata_reader package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.filternet.html">bmtk.simulator.filternet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.default_setters.html">bmtk.simulator.filternet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.lgnmodel.html">bmtk.simulator.filternet.lgnmodel package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.modules.html">bmtk.simulator.filternet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.pointnet.html">bmtk.simulator.pointnet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.pointnet.default_setters.html">bmtk.simulator.pointnet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.pointnet.modules.html">bmtk.simulator.pointnet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.popnet.html">bmtk.simulator.popnet package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.utils.html">bmtk.simulator.utils package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.utils.html">bmtk.utils package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.cell_types_db.html">bmtk.utils.cell_types_db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html">bmtk.utils.compile_mechanisms package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.create_environment.html">bmtk.utils.create_environment package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.io.html">bmtk.utils.io package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.utils.reports.html">bmtk.utils.reports package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.reports.compartment.html">bmtk.utils.reports.compartment package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.reports.spike_trains.html">bmtk.utils.reports.spike_trains package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.utils.sonata.html">bmtk.utils.sonata package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.sonata.config.html">bmtk.utils.sonata.config package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bmtk-package">
+<h1>bmtk package<a class="headerlink" href="#bmtk-package" title="Link to this heading">#</a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bmtk.analyzer.html">bmtk.analyzer package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.cell_vars">bmtk.analyzer.cell_vars module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.compartment">bmtk.analyzer.compartment module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.compartment.plot_traces"><code class="docutils literal notranslate"><span class="pre">plot_traces()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.ecp">bmtk.analyzer.ecp module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.ecp.plot_ecp"><code class="docutils literal notranslate"><span class="pre">plot_ecp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.edges">bmtk.analyzer.edges module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.firing_rates">bmtk.analyzer.firing_rates module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.firing_rates.convert_rates"><code class="docutils literal notranslate"><span class="pre">convert_rates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.firing_rates.firing_rates_equal"><code class="docutils literal notranslate"><span class="pre">firing_rates_equal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.firing_rates.plot_rates_popnet"><code class="docutils literal notranslate"><span class="pre">plot_rates_popnet()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.io_tools">bmtk.analyzer.io_tools module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.io_tools.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.spike_trains">bmtk.analyzer.spike_trains module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spike_trains.plot_raster"><code class="docutils literal notranslate"><span class="pre">plot_raster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spike_trains.plot_rates"><code class="docutils literal notranslate"><span class="pre">plot_rates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spike_trains.plot_rates_boxplot"><code class="docutils literal notranslate"><span class="pre">plot_rates_boxplot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spike_trains.spike_statistics"><code class="docutils literal notranslate"><span class="pre">spike_statistics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spike_trains.to_dataframe"><code class="docutils literal notranslate"><span class="pre">to_dataframe()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.spikes_analyzer">bmtk.analyzer.spikes_analyzer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_analyzer.get_mean_firing_rates"><code class="docutils literal notranslate"><span class="pre">get_mean_firing_rates()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_analyzer.spike_files_equal"><code class="docutils literal notranslate"><span class="pre">spike_files_equal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_analyzer.spikes2dict"><code class="docutils literal notranslate"><span class="pre">spikes2dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_analyzer.spikes_equal_in_window"><code class="docutils literal notranslate"><span class="pre">spikes_equal_in_window()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.spikes_loader">bmtk.analyzer.spikes_loader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_loader.load_spikes"><code class="docutils literal notranslate"><span class="pre">load_spikes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_loader.load_spikes_from_h5"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_h5()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_loader.load_spikes_from_nwb"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_nwb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_loader.load_spikes_from_txt"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_txt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer.utils">bmtk.analyzer.utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.utils.listify"><code class="docutils literal notranslate"><span class="pre">listify()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.analyzer.html#module-bmtk.analyzer">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.node_types_table"><code class="docutils literal notranslate"><span class="pre">node_types_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.nodes_table"><code class="docutils literal notranslate"><span class="pre">nodes_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.plot_calcium"><code class="docutils literal notranslate"><span class="pre">plot_calcium()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.plot_calcium_hdf5"><code class="docutils literal notranslate"><span class="pre">plot_calcium_hdf5()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.plot_potential"><code class="docutils literal notranslate"><span class="pre">plot_potential()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.plot_potential_hdf5"><code class="docutils literal notranslate"><span class="pre">plot_potential_hdf5()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.analyzer.html#bmtk.analyzer.spikes_table"><code class="docutils literal notranslate"><span class="pre">spikes_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bmtk.builder.html">bmtk.builder package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.auxi.html">bmtk.builder.auxi package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.auxi.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.auxi.html#module-bmtk.builder.auxi.edge_connectors">bmtk.builder.auxi.edge_connectors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.auxi.html#module-bmtk.builder.auxi.node_params">bmtk.builder.auxi.node_params module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.auxi.html#module-bmtk.builder.auxi">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.bionet.html">bmtk.builder.bionet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.bionet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.bionet.html#module-bmtk.builder.bionet.swc_reader">bmtk.builder.bionet.swc_reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.bionet.html#module-bmtk.builder.bionet">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.edges_sorter.html">bmtk.builder.edges_sorter package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.edges_sorter.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.edges_sorter.html#module-bmtk.builder.edges_sorter.memory_sorter">bmtk.builder.edges_sorter.memory_sorter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.edges_sorter.html#module-bmtk.builder.edges_sorter.merge_sorter">bmtk.builder.edges_sorter.merge_sorter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.edges_sorter.html#module-bmtk.builder.edges_sorter">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.network_adaptors.html">bmtk.builder.network_adaptors package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.dm_network">bmtk.builder.network_adaptors.dm_network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.dm_network_orig">bmtk.builder.network_adaptors.dm_network_orig module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.edge_props_table">bmtk.builder.network_adaptors.edge_props_table module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.edges_collator">bmtk.builder.network_adaptors.edges_collator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.network">bmtk.builder.network_adaptors.network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors.nxnetwork">bmtk.builder.network_adaptors.nxnetwork module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.network_adaptors.html#module-bmtk.builder.network_adaptors">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.builder_utils">bmtk.builder.builder_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.builder_utils.add_hdf5_attrs"><code class="docutils literal notranslate"><span class="pre">add_hdf5_attrs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.builder_utils.barrier"><code class="docutils literal notranslate"><span class="pre">barrier()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.builder_utils.build_time_uuid"><code class="docutils literal notranslate"><span class="pre">build_time_uuid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.builder_utils.check_properties_across_ranks"><code class="docutils literal notranslate"><span class="pre">check_properties_across_ranks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.builder_utils.list_to_hash"><code class="docutils literal notranslate"><span class="pre">list_to_hash()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.connection_map">bmtk.builder.connection_map module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap"><code class="docutils literal notranslate"><span class="pre">ConnectionMap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.ParamsRules"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.ParamsRules</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.add_properties"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.add_properties()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.connection_itr"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.connection_itr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.connector"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.connector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.connector_params"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.connector_params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.edge_type_id"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.edge_type_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.edge_type_properties"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.edge_type_properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.iterator"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.iterator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.max_connections"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.max_connections()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.params"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.properties_keys"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.properties_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.property_names"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.property_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.source_network_name"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.source_network_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.source_nodes"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.source_nodes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.target_network_name"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.target_network_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ConnectionMap.target_nodes"><code class="docutils literal notranslate"><span class="pre">ConnectionMap.target_nodes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connection_map.ListIterator"><code class="docutils literal notranslate"><span class="pre">ListIterator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.connector">bmtk.builder.connector module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connector.create"><code class="docutils literal notranslate"><span class="pre">create()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.connector.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.edge">bmtk.builder.edge module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge"><code class="docutils literal notranslate"><span class="pre">Edge</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.edge_type_id"><code class="docutils literal notranslate"><span class="pre">Edge.edge_type_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.edge_type_properties"><code class="docutils literal notranslate"><span class="pre">Edge.edge_type_properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.source_gid"><code class="docutils literal notranslate"><span class="pre">Edge.source_gid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.source_node_id"><code class="docutils literal notranslate"><span class="pre">Edge.source_node_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.synaptic_properties"><code class="docutils literal notranslate"><span class="pre">Edge.synaptic_properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.target_gid"><code class="docutils literal notranslate"><span class="pre">Edge.target_gid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.edge.Edge.target_node_id"><code class="docutils literal notranslate"><span class="pre">Edge.target_node_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.functor_cache">bmtk.builder.functor_cache module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.functor_cache.FunctorCache"><code class="docutils literal notranslate"><span class="pre">FunctorCache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.functor_cache.FunctorCache.create"><code class="docutils literal notranslate"><span class="pre">FunctorCache.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.functor_cache.FunctorCache.register"><code class="docutils literal notranslate"><span class="pre">FunctorCache.register()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.id_generator">bmtk.builder.id_generator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.id_generator.IDGenerator"><code class="docutils literal notranslate"><span class="pre">IDGenerator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.id_generator.IDGenerator.get_ids"><code class="docutils literal notranslate"><span class="pre">IDGenerator.get_ids()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.id_generator.IDGenerator.next"><code class="docutils literal notranslate"><span class="pre">IDGenerator.next()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.id_generator.IDGenerator.remove_id"><code class="docutils literal notranslate"><span class="pre">IDGenerator.remove_id()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.index_builders">bmtk.builder.index_builders module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.index_builders.create_index_in_memory"><code class="docutils literal notranslate"><span class="pre">create_index_in_memory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.index_builders.create_index_on_disk"><code class="docutils literal notranslate"><span class="pre">create_index_on_disk()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.index_builders.remove_index"><code class="docutils literal notranslate"><span class="pre">remove_index()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.iterator">bmtk.builder.iterator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.IteratorCache"><code class="docutils literal notranslate"><span class="pre">IteratorCache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.IteratorCache.create"><code class="docutils literal notranslate"><span class="pre">IteratorCache.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.IteratorCache.register"><code class="docutils literal notranslate"><span class="pre">IteratorCache.register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.all_to_one_iterator"><code class="docutils literal notranslate"><span class="pre">all_to_one_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.all_to_one_list_iterator"><code class="docutils literal notranslate"><span class="pre">all_to_one_list_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.create"><code class="docutils literal notranslate"><span class="pre">create()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.lambda_iterator"><code class="docutils literal notranslate"><span class="pre">lambda_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.one_to_all_iterator"><code class="docutils literal notranslate"><span class="pre">one_to_all_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.one_to_all_list_iterator"><code class="docutils literal notranslate"><span class="pre">one_to_all_list_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.one_to_one_iterator"><code class="docutils literal notranslate"><span class="pre">one_to_one_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.one_to_one_list_iterator"><code class="docutils literal notranslate"><span class="pre">one_to_one_list_iterator()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.iterator.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.network_builder">bmtk.builder.network_builder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.BioNetBuilder"><code class="docutils literal notranslate"><span class="pre">BioNetBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.BioNetBuilder.add_edges"><code class="docutils literal notranslate"><span class="pre">BioNetBuilder.add_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.BioNetBuilder.add_nodes"><code class="docutils literal notranslate"><span class="pre">BioNetBuilder.add_nodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.add_edges"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.add_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.add_nodes"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.add_nodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.build"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.clear"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.edges"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.edges_built"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.edges_built</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.import_nodes"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.import_nodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.name"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.nedges"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.nedges</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.nnodes"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.nnodes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.nodes"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.nodes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.nodes_built"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.nodes_built</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.save"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.save_edges"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.save_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.NetworkBuilder.save_nodes"><code class="docutils literal notranslate"><span class="pre">NetworkBuilder.save_nodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PointNetBuilder"><code class="docutils literal notranslate"><span class="pre">PointNetBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PointNetBuilder.add_edges"><code class="docutils literal notranslate"><span class="pre">PointNetBuilder.add_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PointNetBuilder.add_nodes"><code class="docutils literal notranslate"><span class="pre">PointNetBuilder.add_nodes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PopNetBuilder"><code class="docutils literal notranslate"><span class="pre">PopNetBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PopNetBuilder.add_edges"><code class="docutils literal notranslate"><span class="pre">PopNetBuilder.add_edges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.network_builder.PopNetBuilder.add_nodes"><code class="docutils literal notranslate"><span class="pre">PopNetBuilder.add_nodes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.networks">bmtk.builder.networks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.node">bmtk.builder.node module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.get"><code class="docutils literal notranslate"><span class="pre">Node.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.node_id"><code class="docutils literal notranslate"><span class="pre">Node.node_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.node_type_id"><code class="docutils literal notranslate"><span class="pre">Node.node_type_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.node_type_properties"><code class="docutils literal notranslate"><span class="pre">Node.node_type_properties</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.params"><code class="docutils literal notranslate"><span class="pre">Node.params</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node.Node.params_hash"><code class="docutils literal notranslate"><span class="pre">Node.params_hash</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.node_pool">bmtk.builder.node_pool module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_pool.NodePool"><code class="docutils literal notranslate"><span class="pre">NodePool</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_pool.NodePool.filter_str"><code class="docutils literal notranslate"><span class="pre">NodePool.filter_str</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_pool.NodePool.from_filter"><code class="docutils literal notranslate"><span class="pre">NodePool.from_filter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_pool.NodePool.network"><code class="docutils literal notranslate"><span class="pre">NodePool.network</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_pool.NodePool.network_name"><code class="docutils literal notranslate"><span class="pre">NodePool.network_name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder.node_set">bmtk.builder.node_set module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet"><code class="docutils literal notranslate"><span class="pre">NodeSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet.N"><code class="docutils literal notranslate"><span class="pre">NodeSet.N</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet.build"><code class="docutils literal notranslate"><span class="pre">NodeSet.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet.node_type_id"><code class="docutils literal notranslate"><span class="pre">NodeSet.node_type_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet.params_hash"><code class="docutils literal notranslate"><span class="pre">NodeSet.params_hash</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.builder.html#bmtk.builder.node_set.NodeSet.params_keys"><code class="docutils literal notranslate"><span class="pre">NodeSet.params_keys</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.html#module-bmtk.builder">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bmtk.simulator.html">bmtk.simulator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.bionet.html">bmtk.simulator.bionet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.biocell">bmtk.simulator.bionet.biocell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.bionetwork">bmtk.simulator.bionet.bionetwork module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.biosimulator">bmtk.simulator.bionet.biosimulator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.cell">bmtk.simulator.bionet.cell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.config">bmtk.simulator.bionet.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.gids">bmtk.simulator.bionet.gids module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.iclamp">bmtk.simulator.bionet.iclamp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.io_tools">bmtk.simulator.bionet.io_tools module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.morphology">bmtk.simulator.bionet.morphology module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.nml_reader">bmtk.simulator.bionet.nml_reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.nrn">bmtk.simulator.bionet.nrn module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.pointprocesscell">bmtk.simulator.bionet.pointprocesscell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.pointsomacell">bmtk.simulator.bionet.pointsomacell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.pyfunction_cache">bmtk.simulator.bionet.pyfunction_cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.seclamp">bmtk.simulator.bionet.seclamp module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.sonata_adaptors">bmtk.simulator.bionet.sonata_adaptors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.utils">bmtk.simulator.bionet.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet.virtualcell">bmtk.simulator.bionet.virtualcell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.bionet.html#module-bmtk.simulator.bionet">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.core.html">bmtk.simulator.core package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.edge_population">bmtk.simulator.core.edge_population module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.graph">bmtk.simulator.core.graph module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.io_tools">bmtk.simulator.core.io_tools module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.network_reader">bmtk.simulator.core.network_reader module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.node_population">bmtk.simulator.core.node_population module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.node_sets">bmtk.simulator.core.node_sets module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.pyfunction_cache">bmtk.simulator.core.pyfunction_cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.simulation_config">bmtk.simulator.core.simulation_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.simulation_config_validator">bmtk.simulator.core.simulation_config_validator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.simulator">bmtk.simulator.core.simulator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core.simulator_network">bmtk.simulator.core.simulator_network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.core.html#module-bmtk.simulator.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.html">bmtk.simulator.filternet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.auditory_processing">bmtk.simulator.filternet.auditory_processing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.cell">bmtk.simulator.filternet.cell module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.cell_models">bmtk.simulator.filternet.cell_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.config">bmtk.simulator.filternet.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.filternetwork">bmtk.simulator.filternet.filternetwork module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.filters">bmtk.simulator.filternet.filters module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.filtersimulator">bmtk.simulator.filternet.filtersimulator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.io_tools">bmtk.simulator.filternet.io_tools module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.pyfunction_cache">bmtk.simulator.filternet.pyfunction_cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.sonata_adaptors">bmtk.simulator.filternet.sonata_adaptors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.transfer_functions">bmtk.simulator.filternet.transfer_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet.utils">bmtk.simulator.filternet.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.filternet.html#module-bmtk.simulator.filternet">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.pointnet.html">bmtk.simulator.pointnet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.config">bmtk.simulator.pointnet.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.gids">bmtk.simulator.pointnet.gids module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.glif_utils">bmtk.simulator.pointnet.glif_utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.io_tools">bmtk.simulator.pointnet.io_tools module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.nest_utils">bmtk.simulator.pointnet.nest_utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.pointnetwork">bmtk.simulator.pointnet.pointnetwork module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.pointsimulator">bmtk.simulator.pointnet.pointsimulator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.property_map">bmtk.simulator.pointnet.property_map module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.pyfunction_cache">bmtk.simulator.pointnet.pyfunction_cache module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.sonata_adaptors">bmtk.simulator.pointnet.sonata_adaptors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet.utils">bmtk.simulator.pointnet.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.pointnet.html#module-bmtk.simulator.pointnet">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.popnet.html">bmtk.simulator.popnet package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#bmtk-simulator-popnet-config-module">bmtk.simulator.popnet.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#bmtk-simulator-popnet-popedge-module">bmtk.simulator.popnet.popedge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#bmtk-simulator-popnet-popnetwork-module">bmtk.simulator.popnet.popnetwork module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#bmtk-simulator-popnet-popnode-module">bmtk.simulator.popnet.popnode module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#bmtk-simulator-popnet-popsimulator-module">bmtk.simulator.popnet.popsimulator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#module-bmtk.simulator.popnet.sonata_adaptors">bmtk.simulator.popnet.sonata_adaptors module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#module-bmtk.simulator.popnet.utils">bmtk.simulator.popnet.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.popnet.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.utils.html">bmtk.simulator.utils package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.utils.html#module-bmtk.simulator.utils.simulation_inputs">bmtk.simulator.utils.simulation_inputs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.utils.html#module-bmtk.simulator.utils.simulation_reports">bmtk.simulator.utils.simulation_reports module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.simulator.utils.html#module-bmtk.simulator.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.html#module-bmtk.simulator">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bmtk.utils.html">bmtk.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.cell_types_db.html">bmtk.utils.cell_types_db package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.cell_types_db.html#module-bmtk.utils.cell_types_db">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html">bmtk.utils.compile_mechanisms package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html#module-bmtk.utils.compile_mechanisms.compile_mechanisms">bmtk.utils.compile_mechanisms.compile_mechanisms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html#module-bmtk.utils.compile_mechanisms">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.create_environment.html">bmtk.utils.create_environment package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.create_environment.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.create_environment.html#module-bmtk.utils.create_environment.create_environment">bmtk.utils.create_environment.create_environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.create_environment.html#module-bmtk.utils.create_environment.env_builder">bmtk.utils.create_environment.env_builder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.create_environment.html#module-bmtk.utils.create_environment">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.io.html">bmtk.utils.io package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#module-bmtk.utils.io.cell_vars">bmtk.utils.io.cell_vars module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#module-bmtk.utils.io.firing_rates">bmtk.utils.io.firing_rates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#module-bmtk.utils.io.ioutils">bmtk.utils.io.ioutils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#module-bmtk.utils.io.spike_trains">bmtk.utils.io.spike_trains module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.io.html#module-bmtk.utils.io">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.reports.html">bmtk.utils.reports package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.reports.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.reports.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.reports.html#module-bmtk.utils.reports.current_writer">bmtk.utils.reports.current_writer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.reports.html#module-bmtk.utils.reports">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.sonata.html">bmtk.utils.sonata package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.column_property">bmtk.utils.sonata.column_property module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.edge">bmtk.utils.sonata.edge module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.edge_stats">bmtk.utils.sonata.edge_stats module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.file">bmtk.utils.sonata.file module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.file_root">bmtk.utils.sonata.file_root module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.group">bmtk.utils.sonata.group module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.node">bmtk.utils.sonata.node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.population">bmtk.utils.sonata.population module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.types_table">bmtk.utils.sonata.types_table module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata.utils">bmtk.utils.sonata.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.sonata.html#module-bmtk.utils.sonata">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#module-bmtk.utils.hdf5_helper">bmtk.utils.hdf5_helper module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.hdf5_helper.get_attribute_h5"><code class="docutils literal notranslate"><span class="pre">get_attribute_h5()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#module-bmtk.utils.lazy_property">bmtk.utils.lazy_property module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.lazy_property.lazy_property"><code class="docutils literal notranslate"><span class="pre">lazy_property()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#module-bmtk.utils.sim_setup">bmtk.utils.sim_setup module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.BioNetEnvBuilder"><code class="docutils literal notranslate"><span class="pre">BioNetEnvBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.BioNetEnvBuilder.bmtk_simulator"><code class="docutils literal notranslate"><span class="pre">BioNetEnvBuilder.bmtk_simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.BioNetEnvBuilder.compile_mechanisms"><code class="docutils literal notranslate"><span class="pre">BioNetEnvBuilder.compile_mechanisms()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.BioNetEnvBuilder.examples_dir"><code class="docutils literal notranslate"><span class="pre">BioNetEnvBuilder.examples_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.BioNetEnvBuilder.target_simulator"><code class="docutils literal notranslate"><span class="pre">BioNetEnvBuilder.target_simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder"><code class="docutils literal notranslate"><span class="pre">EnvBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.base_dir"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.base_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.bmtk_simulator"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.bmtk_simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.build"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.build()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.components_dir"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.components_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.examples_dir"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.examples_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.network_dir"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.network_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.node_sets_file"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.node_sets_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.output_dir"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.output_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.scripts_root"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.scripts_root</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.EnvBuilder.target_simulator"><code class="docutils literal notranslate"><span class="pre">EnvBuilder.target_simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.FilterNetEnvBuilder"><code class="docutils literal notranslate"><span class="pre">FilterNetEnvBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.FilterNetEnvBuilder.bmtk_simulator"><code class="docutils literal notranslate"><span class="pre">FilterNetEnvBuilder.bmtk_simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.FilterNetEnvBuilder.examples_dir"><code class="docutils literal notranslate"><span class="pre">FilterNetEnvBuilder.examples_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.FilterNetEnvBuilder.target_simulator"><code class="docutils literal notranslate"><span class="pre">FilterNetEnvBuilder.target_simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PointNetEnvBuilder"><code class="docutils literal notranslate"><span class="pre">PointNetEnvBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PointNetEnvBuilder.bmtk_simulator"><code class="docutils literal notranslate"><span class="pre">PointNetEnvBuilder.bmtk_simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PointNetEnvBuilder.examples_dir"><code class="docutils literal notranslate"><span class="pre">PointNetEnvBuilder.examples_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PointNetEnvBuilder.target_simulator"><code class="docutils literal notranslate"><span class="pre">PointNetEnvBuilder.target_simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PopNetEnvBuilder"><code class="docutils literal notranslate"><span class="pre">PopNetEnvBuilder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PopNetEnvBuilder.bmtk_simulator"><code class="docutils literal notranslate"><span class="pre">PopNetEnvBuilder.bmtk_simulator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PopNetEnvBuilder.examples_dir"><code class="docutils literal notranslate"><span class="pre">PopNetEnvBuilder.examples_dir</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.PopNetEnvBuilder.target_simulator"><code class="docutils literal notranslate"><span class="pre">PopNetEnvBuilder.target_simulator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.build_env_bionet"><code class="docutils literal notranslate"><span class="pre">build_env_bionet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.build_env_filternet"><code class="docutils literal notranslate"><span class="pre">build_env_filternet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.build_env_pointnet"><code class="docutils literal notranslate"><span class="pre">build_env_pointnet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.html#bmtk.utils.sim_setup.build_env_popnet"><code class="docutils literal notranslate"><span class="pre">build_env_popnet()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.html#module-bmtk.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-bmtk">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bmtk" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subpackages">Subpackages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk">Module contents</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/bmtk/bmtk.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

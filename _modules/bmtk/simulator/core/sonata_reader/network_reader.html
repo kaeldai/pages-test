@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bmtk.simulator.core.sonata_reader.network_reader &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/bmtk/simulator/core/sonata_reader/network_reader';</script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../../../../../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk.simulator.core.sonata_reader.network_reader</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for bmtk.simulator.core.sonata_reader.network_reader</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.core.network_reader</span><span class="w"> </span><span class="kn">import</span> <span class="n">NodesReader</span><span class="p">,</span> <span class="n">EdgesReader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.core.sonata_reader.node_adaptor</span><span class="w"> </span><span class="kn">import</span> <span class="n">NodeAdaptor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.simulator.core.sonata_reader.edge_adaptor</span><span class="w"> </span><span class="kn">import</span> <span class="n">EdgeAdaptor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bmtk.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">sonata</span>
+
+
+<div class="viewcode-block" id="load_nodes">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.load_nodes">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_nodes</span><span class="p">(</span><span class="n">nodes_h5</span><span class="p">,</span> <span class="n">node_types_csv</span><span class="p">,</span> <span class="n">gid_table</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">selected_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adaptor</span><span class="o">=</span><span class="n">NodeAdaptor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SonataNodes</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">nodes_h5</span><span class="p">,</span> <span class="n">node_types_csv</span><span class="p">,</span> <span class="n">gid_table</span><span class="p">,</span> <span class="n">selected_nodes</span><span class="p">,</span> <span class="n">adaptor</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="load_edges">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.load_edges">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_edges</span><span class="p">(</span><span class="n">edges_h5</span><span class="p">,</span> <span class="n">edge_types_csv</span><span class="p">,</span> <span class="n">selected_populations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adaptor</span><span class="o">=</span><span class="n">EdgeAdaptor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SonataEdges</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">edges_h5</span><span class="p">,</span> <span class="n">edge_types_csv</span><span class="p">,</span> <span class="n">selected_populations</span><span class="p">,</span> <span class="n">adaptor</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="SonataNodes">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SonataNodes</span><span class="p">(</span><span class="n">NodesReader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sonata_node_population</span><span class="p">,</span> <span class="n">prop_adaptor</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SonataNodes</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span> <span class="o">=</span> <span class="n">sonata_node_population</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pop_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prop_adaptors</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span> <span class="o">=</span> <span class="n">prop_adaptor</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pop_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">adaptor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span>
+
+<div class="viewcode-block" id="SonataNodes.n_nodes">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.n_nodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">n_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SonataNodes.nodes_df">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.nodes_df">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nodes_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SonataNodes.initialize">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.initialize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network</span><span class="p">):</span>
+        <span class="c1"># Determine the various mode-types available in the Node Population, whether or not a population of nodes</span>
+        <span class="c1"># contains virtual/external nodes, internal nodes, or a mix of both affects how to nodes are built</span>
+        <span class="n">model_types</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span><span class="o">.</span><span class="n">COL_MODEL_TYPE</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">grp</span><span class="o">.</span><span class="n">all_columns</span><span class="p">:</span>
+                <span class="n">network</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">log_exception</span><span class="p">(</span><span class="s1">&#39;property </span><span class="si">{}</span><span class="s1"> is missing from nodes.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span><span class="o">.</span><span class="n">COL_MODEL_TYPE</span><span class="p">))</span>
+
+            <span class="n">model_types</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span><span class="o">.</span><span class="n">COL_MODEL_TYPE</span><span class="p">))))</span>
+
+        <span class="k">if</span> <span class="s1">&#39;virtual&#39;</span> <span class="ow">in</span> <span class="n">model_types</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_virtual_nodes</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">model_types</span> <span class="o">-=</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;virtual&#39;</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_virtual_nodes</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">model_types</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_internal_nodes</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span><span class="o">.</span><span class="n">preprocess_node_types</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="p">)</span>
+        <span class="c1">#self._preprocess_node_types(network)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prop_adaptors</span> <span class="o">=</span> <span class="p">{</span><span class="n">grp</span><span class="o">.</span><span class="n">group_id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_adaptor</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">network</span><span class="p">)</span> <span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">groups</span><span class="p">}</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_adaptor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grp</span><span class="p">,</span> <span class="n">network</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor</span><span class="o">.</span><span class="n">create_adaptor</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">network</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    def _preprocess_node_types(self, network):</span>
+<span class="sd">        # TODO: The following figures out the actually used node-type-ids. For mem and speed may be better to just</span>
+<span class="sd">        # process them all</span>
+<span class="sd">        node_type_ids = self._node_pop.type_ids</span>
+<span class="sd">        # TODO: Verify all the node_type_ids are in the table</span>
+<span class="sd">        node_types_table = self._node_pop.types_table</span>
+
+<span class="sd">        # TODO: Convert model_type to a enum</span>
+<span class="sd">        if network.has_component(&#39;morphologies_dir&#39;):</span>
+<span class="sd">            morph_dir = network.get_component(&#39;morphologies_dir&#39;)</span>
+<span class="sd">            if morph_dir is not None and &#39;morphology_file&#39; in node_types_table.columns:</span>
+<span class="sd">                for nt_id in node_type_ids:</span>
+<span class="sd">                    node_type = node_types_table[nt_id]</span>
+<span class="sd">                    if node_type[&#39;morphology_file&#39;] is None:</span>
+<span class="sd">                        continue</span>
+<span class="sd">                    # TODO: Check the file exits</span>
+<span class="sd">                    # TODO: See if absolute path is stored in csv</span>
+<span class="sd">                    node_type[&#39;morphology_file&#39;] = os.path.join(morph_dir, node_type[&#39;morphology_file&#39;])</span>
+
+<span class="sd">        if &#39;dynamics_params&#39; in node_types_table.columns and &#39;model_type&#39; in node_types_table.columns:</span>
+<span class="sd">            for nt_id in node_type_ids:</span>
+<span class="sd">                node_type = node_types_table[nt_id]</span>
+<span class="sd">                dynamics_params = node_type[&#39;dynamics_params&#39;]</span>
+<span class="sd">                if isinstance(dynamics_params, dict):</span>
+<span class="sd">                    continue</span>
+
+<span class="sd">                model_type = node_type[&#39;model_type&#39;]</span>
+<span class="sd">                if model_type == &#39;biophysical&#39;:</span>
+<span class="sd">                    params_dir = network.get_component(&#39;biophysical_neuron_models_dir&#39;)</span>
+<span class="sd">                elif model_type == &#39;point_process&#39;:</span>
+<span class="sd">                    params_dir = network.get_component(&#39;point_neuron_models_dir&#39;)</span>
+<span class="sd">                elif model_type == &#39;point_soma&#39;:</span>
+<span class="sd">                    params_dir = network.get_component(&#39;point_neuron_models_dir&#39;)</span>
+<span class="sd">                else:</span>
+<span class="sd">                    # Not sure what to do in this case, throw Exception?</span>
+<span class="sd">                    params_dir = network.get_component(&#39;custom_neuron_models&#39;)</span>
+
+<span class="sd">                params_path = os.path.join(params_dir, dynamics_params)</span>
+
+<span class="sd">                # see if we can load the dynamics_params as a dictionary. Otherwise just save the file path and let the</span>
+<span class="sd">                # cell_model loader function handle the extension.</span>
+<span class="sd">                try:</span>
+<span class="sd">                    params_val = json.load(open(params_path, &#39;r&#39;))</span>
+<span class="sd">                    node_type[&#39;dynamics_params&#39;] = params_val</span>
+<span class="sd">                except Exception:</span>
+<span class="sd">                    # TODO: Check dynamics_params before</span>
+<span class="sd">                    network.io.log_exception(&#39;Could not find node dynamics_params file {}.&#39;.format(params_path))</span>
+
+<span class="sd">        # TODO: Use adaptor to validate model_type and model_template values</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="SonataNodes.load">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.load">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">nodes_h5</span><span class="p">,</span> <span class="n">node_types_csv</span><span class="p">,</span> <span class="n">gid_table</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">selected_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adaptor</span><span class="o">=</span><span class="n">NodeAdaptor</span><span class="p">):</span>
+        <span class="n">sonata_file</span> <span class="o">=</span> <span class="n">sonata</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">data_files</span><span class="o">=</span><span class="n">nodes_h5</span><span class="p">,</span> <span class="n">data_type_files</span><span class="o">=</span><span class="n">node_types_csv</span><span class="p">,</span> <span class="n">gid_table</span><span class="o">=</span><span class="n">gid_table</span><span class="p">)</span>
+        <span class="n">node_populations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">node_pop</span> <span class="ow">in</span> <span class="n">sonata_file</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">populations</span><span class="p">:</span>
+            <span class="n">node_populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="p">(</span><span class="n">node_pop</span><span class="p">,</span> <span class="n">adaptor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">node_populations</span></div>
+
+
+<div class="viewcode-block" id="SonataNodes.get_node">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.get_node">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">get_node_id</span><span class="p">(</span><span class="n">node_id</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">base_node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="p">[</span><span class="n">item</span><span class="p">]:</span>
+            <span class="n">snode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prop_adaptors</span><span class="p">[</span><span class="n">base_node</span><span class="o">.</span><span class="n">group_id</span><span class="p">]</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="n">base_node</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">snode</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<div class="viewcode-block" id="SonataNodes.filter">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.filter">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_conditons</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">filter_conditons</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">node</span></div>
+
+
+<div class="viewcode-block" id="SonataNodes.get_nodes">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataNodes.get_nodes">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">node_group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_node_pop</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
+            <span class="n">node_adaptor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prop_adaptors</span><span class="p">[</span><span class="n">node_group</span><span class="o">.</span><span class="n">group_id</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">node_adaptor</span><span class="o">.</span><span class="n">batch_process</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">node_adaptor</span><span class="o">.</span><span class="n">get_batches</span><span class="p">(</span><span class="n">node_group</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="n">batch</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">node_group</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">node_adaptor</span><span class="o">.</span><span class="n">get_node</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="SonataEdges">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SonataEdges</span><span class="p">(</span><span class="n">EdgesReader</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edge_population</span><span class="p">,</span> <span class="n">adaptor</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span> <span class="o">=</span> <span class="n">edge_population</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor_cls</span> <span class="o">=</span> <span class="n">adaptor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">source_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">source_population</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">target_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">target_population</span>
+
+<div class="viewcode-block" id="SonataEdges.initialize">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges.initialize">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">network</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor_cls</span><span class="o">.</span><span class="n">preprocess_edge_types</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="p">)</span>
+        <span class="c1"># self._preprocess_edge_types(network)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span> <span class="o">=</span> <span class="p">{</span><span class="n">grp</span><span class="o">.</span><span class="n">group_id</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adaptor_cls</span><span class="o">.</span><span class="n">create_adaptor</span><span class="p">(</span><span class="n">grp</span><span class="p">,</span> <span class="n">network</span><span class="p">)</span>
+                               <span class="k">for</span> <span class="n">grp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">groups</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="SonataEdges.get_target">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges.get_target">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">get_target</span><span class="p">(</span><span class="n">node_id</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span><span class="p">[</span><span class="n">edge</span><span class="o">.</span><span class="n">group_id</span><span class="p">]</span><span class="o">.</span><span class="n">get_edge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SonataEdges.get_source">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges.get_source">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">get_source</span><span class="p">(</span><span class="n">node_id</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span><span class="p">[</span><span class="n">edge</span><span class="o">.</span><span class="n">group_id</span><span class="p">]</span><span class="o">.</span><span class="n">get_edge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SonataEdges.get_edges">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges.get_edges">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">edge_group</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="o">.</span><span class="n">groups</span><span class="p">:</span>
+            <span class="n">edge_adaptor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_adaptors</span><span class="p">[</span><span class="n">edge_group</span><span class="o">.</span><span class="n">group_id</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">edge_adaptor</span><span class="o">.</span><span class="n">batch_process</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edge_adaptor</span><span class="o">.</span><span class="n">get_batches</span><span class="p">(</span><span class="n">edge_group</span><span class="p">):</span>
+                    <span class="k">yield</span> <span class="n">edge</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_edge_pop</span><span class="p">:</span>
+                    <span class="k">yield</span> <span class="n">edge_adaptor</span><span class="o">.</span><span class="n">get_edge</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span></div>
+
+
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    def _preprocess_edge_types(self, network):</span>
+<span class="sd">        edge_types_table = self._edge_pop.types_table</span>
+<span class="sd">        edge_type_ids = np.unique(self._edge_pop.type_ids)</span>
+
+<span class="sd">        for et_id in edge_type_ids:</span>
+<span class="sd">            edge_type = edge_types_table[et_id]</span>
+<span class="sd">            if &#39;dynamics_params&#39; in edge_types_table.columns:</span>
+<span class="sd">                dynamics_params = edge_type[&#39;dynamics_params&#39;]</span>
+<span class="sd">                params_dir = network.get_component(&#39;synaptic_models_dir&#39;)</span>
+
+<span class="sd">                params_path = os.path.join(params_dir, dynamics_params)</span>
+
+<span class="sd">                # see if we can load the dynamics_params as a dictionary. Otherwise just save the file path and let the</span>
+<span class="sd">                # cell_model loader function handle the extension.</span>
+<span class="sd">                try:</span>
+<span class="sd">                    params_val = json.load(open(params_path, &#39;r&#39;))</span>
+<span class="sd">                    edge_type[&#39;dynamics_params&#39;] = params_val</span>
+<span class="sd">                except Exception:</span>
+<span class="sd">                    # TODO: Check dynamics_params before</span>
+<span class="sd">                    self.io.log_exception(&#39;Could not find edge dynamics_params file {}.&#39;.format(params_path))</span>
+
+<span class="sd">            # Split target_sections</span>
+<span class="sd">            if &#39;target_sections&#39; in edge_type:</span>
+<span class="sd">                trg_sec = edge_type[&#39;target_sections&#39;]</span>
+<span class="sd">                if trg_sec is not None:</span>
+<span class="sd">                    try:</span>
+<span class="sd">                        edge_type[&#39;target_sections&#39;] = ast.literal_eval(trg_sec)</span>
+<span class="sd">                    except Exception as exc:</span>
+<span class="sd">                        self.io.log_warning(&#39;Unable to split target_sections list {}&#39;.format(trg_sec))</span>
+<span class="sd">                        edge_type[&#39;target_sections&#39;] = None</span>
+
+<span class="sd">            # Split target distances</span>
+<span class="sd">            if &#39;distance_range&#39; in edge_type:</span>
+<span class="sd">                dist_range = edge_type[&#39;distance_range&#39;]</span>
+<span class="sd">                if dist_range is not None:</span>
+<span class="sd">                    try:</span>
+<span class="sd">                        # TODO: Make the distance range has at most two values</span>
+<span class="sd">                        edge_type[&#39;distance_range&#39;] = json.loads(dist_range)</span>
+<span class="sd">                    except Exception as e:</span>
+<span class="sd">                        try:</span>
+<span class="sd">                            edge_type[&#39;distance_range&#39;] = [0.0, float(dist_range)]</span>
+<span class="sd">                        except Exception as e:</span>
+<span class="sd">                            self.io.log_warning(&#39;Unable to parse distance_range {}&#39;.format(dist_range))</span>
+<span class="sd">                            edge_type[&#39;distance_range&#39;] = None</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+<div class="viewcode-block" id="SonataEdges.load">
+<a class="viewcode-back" href="../../../../../bmtk/bmtk.simulator.core.sonata_reader.html#bmtk.simulator.core.sonata_reader.network_reader.SonataEdges.load">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">edges_h5</span><span class="p">,</span> <span class="n">edge_types_csv</span><span class="p">,</span> <span class="n">selected_populations</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adaptor</span><span class="o">=</span><span class="n">EdgeAdaptor</span><span class="p">):</span>
+        <span class="n">sonata_file</span> <span class="o">=</span> <span class="n">sonata</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">data_files</span><span class="o">=</span><span class="n">edges_h5</span><span class="p">,</span> <span class="n">data_type_files</span><span class="o">=</span><span class="n">edge_types_csv</span><span class="p">)</span>
+        <span class="n">edge_populations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">edge_pop</span> <span class="ow">in</span> <span class="n">sonata_file</span><span class="o">.</span><span class="n">edges</span><span class="o">.</span><span class="n">populations</span><span class="p">:</span>
+            <span class="n">edge_populations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">cls</span><span class="p">(</span><span class="n">edge_pop</span><span class="p">,</span> <span class="n">adaptor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">edge_populations</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

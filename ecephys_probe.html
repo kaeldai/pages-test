@@ -1,0 +1,780 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Spikes Stimulus with (NWB) Extracellular Electrophysiology Probes &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=58fbf978"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ecephys_probe';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Spikes Stimulus with (NWB) Extracellular Electrophysiology Probes</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="spikes-stimulus-with-nwb-extracellular-electrophysiology-probes">
+<h1>Spikes Stimulus with (NWB) Extracellular Electrophysiology Probes<a class="headerlink" href="#spikes-stimulus-with-nwb-extracellular-electrophysiology-probes" title="Link to this heading">#</a></h1>
+<p>The goal of the <cite>ecephys_probe</cite> inputs module is to drive a network simulation using experimental data
+recorded using extracellular electrophysiology (ecephys) multi-channel probes. Typically, BMTK and SONATA
+uses either SONATA Spike-Train files or csv files to create virtual cells to provide synaptic inputs to
+the cells in our model. And while SONATA are can be converted and/or generated based on observed data, the
+<cite>ecephys_probe</cite> module allows us directly incorpate in-vivo spike recordings into our in-silco simulation.</p>
+<p>This module uses <a class="reference external" href="https://pynwb.readthedocs.io/en/stable/tutorials/index.html">NWB 2.0</a> formated files to
+fetch unit spike-times data and convert them into synaptic stimuli. It was mainly designed for use with
+<a class="reference external" href="https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html">Allen Institute Visual Coding</a> and
+<a class="reference external" href="http://portal.brain-map.org/explore/circuits/visual-behavior-neuropixels">Visual Behavior</a> neuropixels data.
+But can be used with external public ecephys session data, like many of those found on
+<a class="reference external" href="https://dandiarchive.org/">DANDI</a> provided they have units with spike-times.</p>
+<section id="quick-start-guide">
+<h2>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading">#</a></h2>
+<p>For pre-built examples of network simulations that use in-vivo ecephys probe data there are a number of
+examples in the BTMK <strong>examples/</strong> folder; including ones for <a class="reference external" href="https://github.com/AllenInstitute/bmtk/tree/develop/examples/bio_neuropixels">BioNet (NEURON)</a> and
+<a class="reference external" href="https://github.com/AllenInstitute/bmtk/tree/develop/examples/point_neuropixels">PointNet (NEST)</a>. Once BMTK is installed on your system just run a simulation using one
+of the simulation JSON configs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>run_bmtk.py<span class="w"> </span>config.simulation.x.json
+</pre></div>
+</div>
+<p>Using the <cite>ecephys_probe</cite> module in your simulation is all done through the
+<a class="reference external" href="./simulators.html#configuration-files">simulation simulation config</a> file. Using your preferred text
+editor you can open up the simulation json configuration file, and update the <strong>inputs</strong> section to
+add or modify the <cite>ecephys_probe</cite> modules.</p>
+<p>For example, suppose our network includes virtual thalamic <strong>LGN</strong> cells that synapse onto our cortical cells,
+and we want to use spike trains from Visual Coding Session_715093703.nwb file (See <a class="reference external" href="INSERT_LINK">below</a> on
+tricks for downloading nwb files), then we can add the following section to our json file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LGN_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecephys_probe&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;./session_715093703.nwb&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGN&quot;</span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGd&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">12000.0</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt><strong>Where</strong></dt><dd><ul class="simple">
+<li><p><strong>LGN_spikes</strong> is the unique arbitary name we give for this particular module block (there can be multiple input blocks in the same simulation).</p></li>
+<li><p>We set <strong>“input”:</strong> <em>spikes</em> and <strong>“module”:</strong> <em>“ecephys_probe”</em> to instruct BMTK (and any other SONATA compliant simulator) to create virtual spike
+trains using NWB ECEPhys Probe data. This value cannot be changed</p></li>
+<li><p><strong>input_file</strong> is the path to our download NWB file.</p></li>
+<li><p><strong>node_set</strong> is used to select the sub-population of cells to use for the LGN spikes inputs, in this case use all cells in the <strong>LGN</strong> cell population (see <a class="reference external" href="https://github.com/AllenInstitute/sonata/blob/master/docs/SONATA_DEVELOPER_GUIDE.md#node-sets-file">the following</a> for more information on SONATA node-sets).</p></li>
+<li><p><strong>mapping</strong> is the method to map the NWB units to our model nodes, in this case indicating we want to randomly assign NWB units to our network cells (with replacement in case there are fewer NWB units than cells).</p></li>
+<li><p><strong>units</strong> let’s us filter out the exact units in our NWB file to use, here we only want the spike trains of units where the location is from the LGd.</p></li>
+<li><p><strong>interval</strong> let’s us filter spike trains in the NWB file based on a given time window in ms, in this case we only want spike trains that occured between 10-12 seconds (which by default will be converted 0-2 seconds in the simulation)</p></li>
+</ul>
+</dd>
+</dl>
+<p>The module also allows you to use multiple NWB files at a time, where the sampling of units in the use of our simulation will be done across all NWB input_file’s</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LGN_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecephys_probe&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./session_715093703.nwb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./session_733123887.nwb&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGN&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGd&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">12000.0</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Or if you have multiple populations that you want to use to drive input into our model, you can just use the module multiple times:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;LGN_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecephys_probe&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./session_715093703.nwb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./session_733123887.nwb&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGN&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGd&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">10000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">12000.0</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+
+<span class="w">    </span><span class="nt">&quot;hippocampus_spikes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;input_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;spikes&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;module&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ecephys_probe&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./session_715093703.nwb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./session_733123887.nwb&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;node_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;population&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LGN&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CA1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;CA3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Po&quot;</span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">135000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">137000.0</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>input_file:</strong> - <em>string</em> or <em>list[String]</em> - A path or list of paths to NWB file(s) contain ECEPhys units spike-time recordings.</p></li>
+<li><p><strong>node_set</strong> - <em>string</em> or <em>dict</em> - A filter for node (sub)population to use when assing NWB units to spikes.</p></li>
+<li><p><strong>mapping</strong> - <em>string</em> - The strategy by which NWB units are assinged to simulation nodes. Current options: units_maps, sample, sample_with_replacement.</p></li>
+<li><p><strong>units</strong> - <em>string</em> or <em>dict</em> - Used to filter out which units in NWB <strong>input_file</strong> are to be used by module, if empty will use all possible units from file.</p></li>
+<li><p><strong>missing_ids</strong> - <em>string</em> - Determines what happens if a mapping fails or unit_id does not exists. Current options: fail (<em>default</em>), warn, ignore.</p></li>
+<li><p><strong>save_map</strong> - <em>string</em> - A path to a csv file in the output folder where, if specified, will save the units_maps of current simulation. Will overwrite existing file if exists.</p></li>
+<li><p><strong>interval</strong> - <em>list[float (ms), float (ms)]</em> or <em>dict</em> or <em>list[intervals or dict]</em> - Filters spike-times in the NWB <strong>input</strong> file, using using a [<em>start</em>, <em>stop</em>] interval (ms), or if a dictionary is used tries to parse interval from the NWB intervals table. By default will shift interval to time-step 0.0 ms in simulation, use <strong>simulation_offset</strong> to shift to anther value.</p></li>
+<li><p><strong>simulation_offset</strong> - <em>float</em> - When using the <strong>interval</strong> option to filter spike-times, determines offset for simulation. Default value 0.0.</p></li>
+</ul>
+</section>
+<section id="advanced-features">
+<h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading">#</a></h2>
+<section id="mapping-and-filtering-nwb-units">
+<h3>Mapping and Filtering NWB units<a class="headerlink" href="#mapping-and-filtering-nwb-units" title="Link to this heading">#</a></h3>
+<p>In the simulation each <strong>unit</strong> in NWB must be mapped onto a SONATA <strong>node</strong> for it’s spike trains to be used. The <cite>mapping</cite> and <cite>units</cite> options
+work in conjunction to control how this is done.</p>
+<section id="sample-and-sample-with-replacement">
+<h4>sample and sample_with_replacement<a class="headerlink" href="#sample-and-sample-with-replacement" title="Link to this heading">#</a></h4>
+<p>To randomly assign unit_ids to node_ids you can use values “sample” or “sample_with_replacement” in the <cite>mapping</cite> option. The former is the same
+as sample without replacement, which may cause issues if there are fewer units than nodes.</p>
+<p>By default all units in the NWB file will be used, but you can use the <cite>units</cite> option to filter out only those units which meet a certain critera.
+It must be a dictionary of conditionals that will preform a intersection (eg AND operation). For example to get only units with a “good” value in
+the “quality” column and comes from channel_ids in 850261194-850261196:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;quality&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;good&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;channel_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">850261194</span><span class="p">,</span><span class="w"> </span><span class="mi">850261195</span><span class="p">,</span><span class="w"> </span><span class="mi">850261196</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you need more advanced comparisions you can specify the column query in the format <cite>“query”: {“column”: &lt;col&gt;, “operation”: &lt;operator&gt;, “value”: &lt;value&gt;}</cite>.
+For example to get only VISp units that having “firing_rate” between 5.0 and 10.0 Hz:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sample_with_replacement&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VISp&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;fr_gt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&gt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;fr_lt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;firing_rate&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;=&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note: The options available for filter will vary from NWB file to NWB file.</p>
+</section>
+<section id="units-map">
+<h4>units_map<a class="headerlink" href="#units-map" title="Link to this heading">#</a></h4>
+<p>If you know how each unit should be mapped to each node and stored in a csv file, then you can use the “units_map” value in the <cite>mapping</cite> option.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;units_map&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;units&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/units2nodes_map.csv&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <em>units2nodes_map.csv</em> is a space-separated csv file where each row contains a SONATA node identifier (Population + node_id) and a corresponding
+units_id from a NWB file with manditory columns <strong>population</strong>, <strong>node_ids</strong>, <strong>unit_ids</strong></p>
+<div class="pst-scrollable-table-container"><table class="table" id="id1">
+<caption><span class="caption-text">units2nodes_map.csv</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>population</p></th>
+<th class="head"><p>node_ids</p></th>
+<th class="head"><p>unit_ids</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LGN</p></td>
+<td><p>0</p></td>
+<td><p>951090537</p></td>
+</tr>
+<tr class="row-odd"><td><p>LGN</p></td>
+<td><p>1</p></td>
+<td><p>951090804</p></td>
+</tr>
+<tr class="row-even"><td><p>LGN</p></td>
+<td><p>2</p></td>
+<td><p>951091012</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="filtering-spike-times-by-intervals-and-epochs">
+<h3>Filtering Spike Times by Intervals and Epochs<a class="headerlink" href="#filtering-spike-times-by-intervals-and-epochs" title="Link to this heading">#</a></h3>
+<p>In-vio Session data typically are much longer and contains much more stimuli/epochs than that which is of interest to our own simulations. To simulate
+we can use the <cite>interval</cite> option to only use spikes that occur during a period of interest.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/ecephys_probe_intervals.png"><img alt="_images/ecephys_probe_intervals.png" src="_images/ecephys_probe_intervals.png" style="width: 1163.0px; height: 295.0px;" />
+</a>
+</figure>
+<p>By default the <cite>ecephys_probe</cite> module will shift it to start at zero. So for example if the time-window is set to between 10 and 20 seconds, then a
+spike that is recorded at 11.5 seconds in the NWB will now occur at time 1.5 seconds in the simulation. You can use the <cite>simulation_offset</cite> option
+to adjust where spikes starts in the simulation.</p>
+<section id="intervals-ranges">
+<h4>intervals ranges<a class="headerlink" href="#intervals-ranges" title="Link to this heading">#</a></h4>
+<p>The easies way to to specify a time-window is to specify a range [<em>start_time</em>, <em>stop_time</em>] in milliseconds. For example if you know the period of
+interest you are interested occurs in the probe data between minutes 30 to 32</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">1800000.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1920000.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you have multiple NWB files, each one with a unique period of interest, you can also pass in a list of ranges</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;input_file&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./session_71509.nwb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./session_73312.nwb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./session_89923.nwb&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">12000</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">15000</span><span class="p">,</span><span class="w"> </span><span class="mi">17000</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">24000</span><span class="p">,</span><span class="w"> </span><span class="mi">26000</span><span class="p">]]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="intervals-and-epoch-tables-aka-stimulus-table">
+<h4>Intervals and Epoch Tables (aka Stimulus Table)<a class="headerlink" href="#intervals-and-epoch-tables-aka-stimulus-table" title="Link to this heading">#</a></h4>
+<p>NWB session files can contain intervals/epochs tables that can tell you the exact time during a session a stimulus or condition was being presented
+to the subject. If instead of passing an a time range to <cite>interval</cite>, you pass in a <cite>dictionary</cite>, the <cite>ecephys_probe</cite> module will automatically try
+to create a time-window filter using the columns from the intervals table.</p>
+<p>For example, if you want to get spikes that only occurred when a drifting gratings was presented to subject with a specific a 90 degrees orientation
+and &lt; 5 Hz frequency:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;stimulus_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drifting_gratings&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;temporal_frequency&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;temporal_frequency&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">5.0</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">90.0</span>
+<span class="w">  </span><span class="p">},</span>
+</pre></div>
+</div>
+<p>Only the “stimulus_name” value is required. The rest of the options availble to filter on the interval or epoch will vary from both NWB to NWB and
+from each interval to interval.</p>
+<p>As with interval ranges, when working with multiple NWB files you can pass in a list a interval filters dictionaries.</p>
+<p>One important issue to note is that often a query on the stimulus table will return multiple intervals. For instance drifting gratings with orientation
+90deg and freq &lt; 5 Hz may be presented to subject multiple times over the full session. By default the module will select the first one, but you
+can use special option “interval_index” to get a specific one. For example to get the fifth time a drifting grating is presented:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;interval_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;drifting_gratings&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;interval_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>By default the value is set to 0 (the first time that particular interval occurs). But you can also pass in options ‘random’ (select one interval at
+random), ‘first’, ‘last’, or ‘full_range’ (returns the minimum start-time and maximum stop-time over all intervals).</p>
+</section>
+<section id="individual-unit-interval">
+<h4>Individual unit interval<a class="headerlink" href="#individual-unit-interval" title="Link to this heading">#</a></h4>
+<p>It is also possible to assign each indivdiual unit_id a unique interval of interest when using the “units_maps” option for in the <cite>mapping</cite> attribute.
+To do so just update the units-to-nodes csv file to include columns <strong>start_times</strong> and <strong>stop_times</strong>, both in units of milliseconds:</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text">units2nodes_map.csv</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>population</p></th>
+<th class="head"><p>node_ids</p></th>
+<th class="head"><p>unit_ids</p></th>
+<th class="head"><p>start_times</p></th>
+<th class="head"><p>stop_times</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LGN</p></td>
+<td><p>0</p></td>
+<td><p>951090537</p></td>
+<td><p>10034.0</p></td>
+<td><p>13124.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>LGN</p></td>
+<td><p>1</p></td>
+<td><p>951090804</p></td>
+<td><p>11130.5</p></td>
+<td><p>12999.8</p></td>
+</tr>
+<tr class="row-even"><td><p>LGN</p></td>
+<td><p>2</p></td>
+<td><p>951091012</p></td>
+<td><p>500.0</p></td>
+<td><p>2501.3</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="using-the-allensdk-to-download-neuropixels-data">
+<h2>Using the AllenSDK to download Neuropixels data<a class="headerlink" href="#using-the-allensdk-to-download-neuropixels-data" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-guide">Quick Start Guide</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-features">Advanced Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-and-filtering-nwb-units">Mapping and Filtering NWB units</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-and-sample-with-replacement">sample and sample_with_replacement</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#units-map">units_map</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-spike-times-by-intervals-and-epochs">Filtering Spike Times by Intervals and Epochs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervals-ranges">intervals ranges</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#intervals-and-epoch-tables-aka-stimulus-table">Intervals and Epoch Tables (aka Stimulus Table)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-unit-interval">Individual unit interval</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-allensdk-to-download-neuropixels-data">Using the AllenSDK to download Neuropixels data</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ecephys_probe.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

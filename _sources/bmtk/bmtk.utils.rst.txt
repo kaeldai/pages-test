@@ -1,0 +1,50 @@
+bmtk.utils package
+==================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   bmtk.utils.cell_types_db
+   bmtk.utils.compile_mechanisms
+   bmtk.utils.create_environment
+   bmtk.utils.io
+   bmtk.utils.reports
+   bmtk.utils.sonata
+
+Submodules
+----------
+
+bmtk.utils.hdf5\_helper module
+------------------------------
+
+.. automodule:: bmtk.utils.hdf5_helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.utils.lazy\_property module
+--------------------------------
+
+.. automodule:: bmtk.utils.lazy_property
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.utils.sim\_setup module
+----------------------------
+
+.. automodule:: bmtk.utils.sim_setup
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: bmtk.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

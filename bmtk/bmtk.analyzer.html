@@ -1,0 +1,1053 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>bmtk.analyzer package &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=58fbf978"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bmtk/bmtk.analyzer';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="../_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">bmtk.analyzer package</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.builder.html">bmtk.builder package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.auxi.html">bmtk.builder.auxi package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.bionet.html">bmtk.builder.bionet package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.edges_sorter.html">bmtk.builder.edges_sorter package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.builder.network_adaptors.html">bmtk.builder.network_adaptors package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.simulator.html">bmtk.simulator package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.bionet.html">bmtk.simulator.bionet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.bionet.default_setters.html">bmtk.simulator.bionet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.bionet.modules.html">bmtk.simulator.bionet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.core.html">bmtk.simulator.core package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.core.modules.html">bmtk.simulator.core.modules package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.core.sonata_reader.html">bmtk.simulator.core.sonata_reader package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.filternet.html">bmtk.simulator.filternet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.default_setters.html">bmtk.simulator.filternet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.lgnmodel.html">bmtk.simulator.filternet.lgnmodel package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.filternet.modules.html">bmtk.simulator.filternet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.simulator.pointnet.html">bmtk.simulator.pointnet package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.pointnet.default_setters.html">bmtk.simulator.pointnet.default_setters package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.simulator.pointnet.modules.html">bmtk.simulator.pointnet.modules package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.popnet.html">bmtk.simulator.popnet package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.simulator.utils.html">bmtk.simulator.utils package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bmtk.utils.html">bmtk.utils package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.cell_types_db.html">bmtk.utils.cell_types_db package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.compile_mechanisms.html">bmtk.utils.compile_mechanisms package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.create_environment.html">bmtk.utils.create_environment package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bmtk.utils.io.html">bmtk.utils.io package</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.utils.reports.html">bmtk.utils.reports package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.reports.compartment.html">bmtk.utils.reports.compartment package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.reports.spike_trains.html">bmtk.utils.reports.spike_trains package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="bmtk.utils.sonata.html">bmtk.utils.sonata package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="bmtk.utils.sonata.config.html">bmtk.utils.sonata.config package</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">bmtk.analyzer package</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bmtk-analyzer-package">
+<h1>bmtk.analyzer package<a class="headerlink" href="#bmtk-analyzer-package" title="Link to this heading">#</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-bmtk.analyzer.cell_vars">
+<span id="bmtk-analyzer-cell-vars-module"></span><h2>bmtk.analyzer.cell_vars module<a class="headerlink" href="#module-bmtk.analyzer.cell_vars" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-bmtk.analyzer.compartment">
+<span id="bmtk-analyzer-compartment-module"></span><h2>bmtk.analyzer.compartment module<a class="headerlink" href="#module-bmtk.analyzer.compartment" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.compartment.plot_traces">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.compartment.</span></span><span class="sig-name descname"><span class="pre">plot_traces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_excludes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_types_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'origin'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">average</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/compartment.html#plot_traces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.compartment.plot_traces" title="Link to this definition">#</a></dt>
+<dd><p>Plot compartment variables (eg Membrane Voltage, Calcium conc.) traces from the output of simulation. Will
+attempt to look in the SONATA simulation configuration json “reports” sections for any matching “membrane_report”
+outputs with a matching report_name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_traces</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">report_name</span><span class="o">=</span><span class="s1">&#39;membrane_potential&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the path the the report is different (or missing) than what’s in the SONATA config then use the “report_path”
+option instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_traces</span><span class="p">(</span><span class="n">report_path</span><span class="o">=</span><span class="s1">&#39;/my/path/to/membrane_potential.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To display the traces of only a select number of nodes you can filter using the node_ids options:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_traces</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">node_ids</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The average option will find the mean value of all the traces to display:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_traces</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">node_ids</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">average</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may also group together different subsets of nodes and display multiple averages based on certain attributes
+of the network, which can be done using the group_by key. The group_exlcudes option will exclude certain groups.
+For example if you want to plot the averaged membrane potential across each cortical “layer”, exclude L1:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_traces</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">report</span><span class="o">=</span><span class="s1">&#39;membrane_potential&#39;</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="s1">&#39;layer&#39;</span><span class="p">,</span> <span class="n">group_excludes</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_file</strong> – path to SONATA simulation configuration.</p></li>
+<li><p><strong>report_name</strong> – name of the membrane_report “report” which will be plotted. If only one compartment report
+in the simulation config then function will find it automatically.</p></li>
+<li><p><strong>population</strong> – string. If the report more than one population of nodes, use this to determine which nodes to
+plot. If only one population exists and population=None then the function will find it by default.</p></li>
+<li><p><strong>report_path</strong> – Path to SONATA compartment report file. Do not use with “config_file” and “report_name” options.</p></li>
+<li><p><strong>group_by</strong> – Attribute of the “nodes” file used to group and average subsets of nodes.</p></li>
+<li><p><strong>group_excludes</strong> – list of strings or None. When using the “group_by”, allows users to exclude certain groupings
+based on the attribute value.</p></li>
+<li><p><strong>nodes_file</strong> – path to nodes hdf5 file containing “population”. By default this will be resolved using the
+config.</p></li>
+<li><p><strong>node_types_file</strong> – path to node-types csv file containing “population”. By default this will be resolved using
+the config.</p></li>
+<li><p><strong>node_ids</strong> – int or list of integers. Individual node to display the variable.</p></li>
+<li><p><strong>sections</strong> – ‘origin’, ‘all’, or list of ids, Compartments/elements to display, By default will only show values
+at the soma.</p></li>
+<li><p><strong>average</strong> – If true will display average of “node_ids”. Default: False</p></li>
+<li><p><strong>times</strong> – (float, float), start and stop times of simulation. By default will get values from simulation
+configs “run” section.</p></li>
+<li><p><strong>title</strong> – str, adds a title to the plot. If None (default) then name will be automatically generated using the
+report_name.</p></li>
+<li><p><strong>show_legend</strong> – Set True or False to determine if legend should be displayed on the plot. The default (None)
+function itself will guess if legend should be shown.</p></li>
+<li><p><strong>show</strong> – bool to display or not display plot. default True.</p></li>
+<li><p><strong>save_as</strong> – None or str: file-name/path to save the plot as a png/jpeg/etc. If None or empty string will not
+save plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib figure.Figure object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.ecp">
+<span id="bmtk-analyzer-ecp-module"></span><h2>bmtk.analyzer.ecp module<a class="headerlink" href="#module-bmtk.analyzer.ecp" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.ecp.plot_ecp">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.ecp.</span></span><span class="sig-name descname"><span class="pre">plot_ecp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ecp_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/ecp.html#plot_ecp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.ecp.plot_ecp" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.edges">
+<span id="bmtk-analyzer-edges-module"></span><h2>bmtk.analyzer.edges module<a class="headerlink" href="#module-bmtk.analyzer.edges" title="Link to this heading">#</a></h2>
+</section>
+<section id="module-bmtk.analyzer.firing_rates">
+<span id="bmtk-analyzer-firing-rates-module"></span><h2>bmtk.analyzer.firing_rates module<a class="headerlink" href="#module-bmtk.analyzer.firing_rates" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.firing_rates.convert_rates">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.firing_rates.</span></span><span class="sig-name descname"><span class="pre">convert_rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rates_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/firing_rates.html#convert_rates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.firing_rates.convert_rates" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.firing_rates.firing_rates_equal">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.firing_rates.</span></span><span class="sig-name descname"><span class="pre">firing_rates_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rates_file1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rates_file2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/firing_rates.html#firing_rates_equal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.firing_rates.firing_rates_equal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.firing_rates.plot_rates_popnet">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.firing_rates.</span></span><span class="sig-name descname"><span class="pre">plot_rates_popnet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_models_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rates_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/firing_rates.html#plot_rates_popnet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.firing_rates.plot_rates_popnet" title="Link to this definition">#</a></dt>
+<dd><p>Initial method for plotting popnet output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cell_models_file</strong></p></li>
+<li><p><strong>rates_file</strong></p></li>
+<li><p><strong>model_keys</strong></p></li>
+<li><p><strong>save_as</strong></p></li>
+<li><p><strong>show_plot</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.io_tools">
+<span id="bmtk-analyzer-io-tools-module"></span><h2>bmtk.analyzer.io_tools module<a class="headerlink" href="#module-bmtk.analyzer.io_tools" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.io_tools.load_config">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.io_tools.</span></span><span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/io_tools.html#load_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.io_tools.load_config" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.spike_trains">
+<span id="bmtk-analyzer-spike-trains-module"></span><h2>bmtk.analyzer.spike_trains module<a class="headerlink" href="#module-bmtk.analyzer.spike_trains" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spike_trains.plot_raster">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spike_trains.</span></span><span class="sig-name descname"><span class="pre">plot_raster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">with_histogram</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_excludes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_types_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spike_trains.html#plot_raster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spike_trains.plot_raster" title="Link to this definition">#</a></dt>
+<dd><p>Create a raster plot (plus optional histogram) from the results of the simulation.</p>
+<p>Will using the SONATA simulation configs “output” section to locate where the spike-trains file was created and
+display them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_raster</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the path the the report is different (or missing) than what’s in the SONATA config then use the “spikes_file”
+option instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_raster</span><span class="p">(</span><span class="n">spikes_file</span><span class="o">=</span><span class="s1">&#39;/my/path/to/membrane_potential.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may also group together different subsets of nodes using specific attributes of the network using the “group_by”
+option, and the “group_excludes” option to exclude specific subsets. For example to color and label different
+subsets of nodes based on their cortical “layer”, but exlcude plotting the L1 nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_raster</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">groupy_by</span><span class="o">=</span><span class="s1">&#39;layer&#39;</span><span class="p">,</span> <span class="n">group_excludes</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_file</strong> – path to SONATA simulation configuration.</p></li>
+<li><p><strong>population</strong> – name of the membrane_report “report” which will be plotted. If only one compartment report
+in the simulation config then function will find it automatically.</p></li>
+<li><p><strong>with_histogram</strong> – If True the a histogram will be shown as a small subplot below the scatter plot. Default
+True.</p></li>
+<li><p><strong>times</strong> – (float, float), start and stop times of simulation. By default will get values from simulation
+configs “run” section.</p></li>
+<li><p><strong>title</strong> – str, adds a title to the plot. If None (default) then name will be automatically generated using the
+report_name.</p></li>
+<li><p><strong>show</strong> – bool to display or not display plot. default True.</p></li>
+<li><p><strong>save_as</strong> – None or str: file-name/path to save the plot as a png/jpeg/etc. If None or empty string will not
+save plot.</p></li>
+<li><p><strong>group_by</strong> – Attribute of the “nodes” file used to group and average subsets of nodes.</p></li>
+<li><p><strong>group_excludes</strong> – list of strings or None. When using the “group_by”, allows users to exclude certain groupings
+based on the attribute value.</p></li>
+<li><p><strong>spikes_file</strong> – Path to SONATA spikes file. Do not use with “config_file” options.</p></li>
+<li><p><strong>nodes_file</strong> – path to nodes hdf5 file containing “population”. By default this will be resolved using the
+config.</p></li>
+<li><p><strong>node_types_file</strong> – path to node-types csv file containing “population”. By default this will be resolved using
+the config.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib figure.Figure object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spike_trains.plot_rates">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spike_trains.</span></span><span class="sig-name descname"><span class="pre">plot_rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_excludes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_types_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spike_trains.html#plot_rates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spike_trains.plot_rates" title="Link to this definition">#</a></dt>
+<dd><p>Calculate and plot the rates of each node recorded during the simulation - averaged across the entirety of the
+simulation.</p>
+<p>Will using the SONATA simulation configs “output” section to locate where the spike-trains file was created and
+display them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the path the the report is different (or missing) than what’s in the SONATA config then use the “spikes_file”
+option instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates</span><span class="p">(</span><span class="n">spikes_file</span><span class="o">=</span><span class="s1">&#39;/my/path/to/membrane_potential.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may also group together different subsets of nodes using specific attributes of the network using the “group_by”
+option, and the “group_excludes” option to exclude specific subsets. For example to color and label different
+subsets of nodes based on their cortical “layer”, but exlcude plotting the L1 nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">groupy_by</span><span class="o">=</span><span class="s1">&#39;layer&#39;</span><span class="p">,</span> <span class="n">group_excludes</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_file</strong> – path to SONATA simulation configuration.</p></li>
+<li><p><strong>population</strong> – name of the membrane_report “report” which will be plotted. If only one compartment report
+in the simulation config then function will find it automatically.</p></li>
+<li><p><strong>smoothing</strong> – Bool or function. Used to smooth the data. By default (False) no smoothing will be done. If True
+will using a moving average smoothing function. Or use a function pointer.</p></li>
+<li><p><strong>smoothing_params</strong> – dict, parameters when using a function pointer smoothing value.</p></li>
+<li><p><strong>times</strong> – (float, float), start and stop times of simulation. By default will get values from simulation
+configs “run” section.</p></li>
+<li><p><strong>title</strong> – str, adds a title to the plot. If None (default) then name will be automatically generated using the
+report_name.</p></li>
+<li><p><strong>show</strong> – bool to display or not display plot. default True.</p></li>
+<li><p><strong>save_as</strong> – None or str: file-name/path to save the plot as a png/jpeg/etc. If None or empty string will not
+save plot.</p></li>
+<li><p><strong>group_by</strong> – Attribute of the “nodes” file used to group and average subsets of nodes.</p></li>
+<li><p><strong>group_excludes</strong> – list of strings or None. When using the “group_by”, allows users to exclude certain groupings
+based on the attribute value.</p></li>
+<li><p><strong>spikes_file</strong> – Path to SONATA spikes file. Do not use with “config_file” options.</p></li>
+<li><p><strong>nodes_file</strong> – Path to nodes hdf5 file containing “population”. By default this will be resolved using the
+config.</p></li>
+<li><p><strong>node_types_file</strong> – Path to node-types csv file containing “population”. By default this will be resolved using
+the config.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib figure.Figure object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spike_trains.plot_rates_boxplot">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spike_trains.</span></span><span class="sig-name descname"><span class="pre">plot_rates_boxplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_excludes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_types_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spike_trains.html#plot_rates_boxplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spike_trains.plot_rates_boxplot" title="Link to this definition">#</a></dt>
+<dd><p>Creates a box plot of the firing rates taken from nodes recorded during the simulation.</p>
+<p>Will using the SONATA simulation configs “output” section to locate where the spike-trains file was created and
+display them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates_boxplot</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the path the the report is different (or missing) than what’s in the SONATA config then use the “spikes_file”
+option instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates_boxplot</span><span class="p">(</span><span class="n">spikes_file</span><span class="o">=</span><span class="s1">&#39;/my/path/to/membrane_potential.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You may also group together different subsets of nodes using specific attributes of the network using the “group_by”
+option, and the “group_excludes” option to exclude specific subsets. For example to color and label different
+subsets of nodes based on their cortical “layer”, but exlcude plotting the L1 nodes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rates_boxplot</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;config.json&#39;</span><span class="p">,</span> <span class="n">groupy_by</span><span class="o">=</span><span class="s1">&#39;layer&#39;</span><span class="p">,</span> <span class="n">group_excludes</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_file</strong> – path to SONATA simulation configuration.</p></li>
+<li><p><strong>population</strong> – name of the membrane_report “report” which will be plotted. If only one compartment report
+in the simulation config then function will find it automatically.</p></li>
+<li><p><strong>times</strong> – (float, float), start and stop times of simulation. By default will get values from simulation
+configs “run” section.</p></li>
+<li><p><strong>title</strong> – str, adds a title to the plot. If None (default) then name will be automatically generated using the
+report_name.</p></li>
+<li><p><strong>show</strong> – bool to display or not display plot. default True.</p></li>
+<li><p><strong>save_as</strong> – None or str: file-name/path to save the plot as a png/jpeg/etc. If None or empty string will not
+save plot.</p></li>
+<li><p><strong>group_by</strong> – Attribute of the “nodes” file used to group and average subsets of nodes.</p></li>
+<li><p><strong>group_excludes</strong> – list of strings or None. When using the “group_by”, allows users to exclude certain groupings
+based on the attribute value.</p></li>
+<li><p><strong>spikes_file</strong> – Path to SONATA spikes file. Do not use with “config_file” options.</p></li>
+<li><p><strong>nodes_file</strong> – Path to nodes hdf5 file containing “population”. By default this will be resolved using the
+config.</p></li>
+<li><p><strong>node_types_file</strong> – Path to node-types csv file containing “population”. By default this will be resolved using
+the config.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>matplotlib figure.Figure object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spike_trains.spike_statistics">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spike_trains.</span></span><span class="sig-name descname"><span class="pre">spike_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">filterparams</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spike_trains.html#spike_statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spike_trains.spike_statistics" title="Link to this definition">#</a></dt>
+<dd><p>Get spike statistics (firing_rate, counts, inter-spike interval) of the nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spikes_file</strong> – Path to SONATA spikes file. Do not use with “config_file” options.</p></li>
+<li><p><strong>simulation</strong></p></li>
+<li><p><strong>population</strong></p></li>
+<li><p><strong>simulation_time</strong></p></li>
+<li><p><strong>groupby</strong></p></li>
+<li><p><strong>network</strong></p></li>
+<li><p><strong>config_file</strong></p></li>
+<li><p><strong>filterparams</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spike_trains.to_dataframe">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spike_trains.</span></span><span class="sig-name descname"><span class="pre">to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spike_trains.html#to_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spike_trains.to_dataframe" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_file</strong></p></li>
+<li><p><strong>spikes_file</strong></p></li>
+<li><p><strong>population</strong></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.spikes_analyzer">
+<span id="bmtk-analyzer-spikes-analyzer-module"></span><h2>bmtk.analyzer.spikes_analyzer module<a class="headerlink" href="#module-bmtk.analyzer.spikes_analyzer" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_analyzer.get_mean_firing_rates">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_analyzer.</span></span><span class="sig-name descname"><span class="pre">get_mean_firing_rates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_gids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tstop_msec</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_analyzer.html#get_mean_firing_rates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_analyzer.get_mean_firing_rates" title="Link to this definition">#</a></dt>
+<dd><p>Compute mean firing rate over the duration of the simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spike_gids</strong> – gids of cells which spiked</p></li>
+<li><p><strong>node_ids</strong> – np.array of node_ids</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return mean_firing_rate<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.array mean firing rates</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_analyzer.spike_files_equal">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_analyzer.</span></span><span class="sig-name descname"><span class="pre">spike_files_equal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes_txt_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_txt_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">err</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_analyzer.html#spike_files_equal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_analyzer.spike_files_equal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_analyzer.spikes2dict">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_analyzer.</span></span><span class="sig-name descname"><span class="pre">spikes2dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_analyzer.html#spikes2dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_analyzer.spikes2dict" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_analyzer.spikes_equal_in_window">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_analyzer.</span></span><span class="sig-name descname"><span class="pre">spikes_equal_in_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spikes1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">twindow</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_analyzer.html#spikes_equal_in_window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_analyzer.spikes_equal_in_window" title="Link to this definition">#</a></dt>
+<dd><p>Compare spikes within a time window    
+:param spikes1: dict with “time” and “gid” arrays for raster 1
+:param spikes2: dict with “time” and “gid” arrays for raster 2
+:param twindow: [tstart,tend] time window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return boolean<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if equal, False if different</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.spikes_loader">
+<span id="bmtk-analyzer-spikes-loader-module"></span><h2>bmtk.analyzer.spikes_loader module<a class="headerlink" href="#module-bmtk.analyzer.spikes_loader" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_loader.load_spikes">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_loader.</span></span><span class="sig-name descname"><span class="pre">load_spikes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trial_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_loader.html#load_spikes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_loader.load_spikes" title="Link to this definition">#</a></dt>
+<dd><p>Loads spikes from multiple file formats</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – name of spike file</p></li>
+<li><p><strong>trian_name</strong> – name of a trial within a spike file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return spikes<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict with spikes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_loader.load_spikes_from_h5">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_loader.</span></span><span class="sig-name descname"><span class="pre">load_spikes_from_h5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_loader.html#load_spikes_from_h5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_loader.load_spikes_from_h5" title="Link to this definition">#</a></dt>
+<dd><p>Load spikes from the hdf5 file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – name of spike file</p></li>
+<li><p><strong>trian_name</strong> – name of a trial within a spike file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return spikes<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict with spikes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_loader.load_spikes_from_nwb">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_loader.</span></span><span class="sig-name descname"><span class="pre">load_spikes_from_nwb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trial_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_loader.html#load_spikes_from_nwb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_loader.load_spikes_from_nwb" title="Link to this definition">#</a></dt>
+<dd><p>Load spikes from the nwb file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – name of spike file</p></li>
+<li><p><strong>trian_name</strong> – name of a trial within a spike file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return spikes<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict with spikes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_loader.load_spikes_from_txt">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.spikes_loader.</span></span><span class="sig-name descname"><span class="pre">load_spikes_from_txt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/spikes_loader.html#load_spikes_from_txt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_loader.load_spikes_from_txt" title="Link to this definition">#</a></dt>
+<dd><p>Load spikes from the txt file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – name of spike file</p></li>
+<li><p><strong>trian_name</strong> – name of a trial within a spike file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return spikes<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict with spikes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer.utils">
+<span id="bmtk-analyzer-utils-module"></span><h2>bmtk.analyzer.utils module<a class="headerlink" href="#module-bmtk.analyzer.utils" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.utils.listify">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.utils.</span></span><span class="sig-name descname"><span class="pre">listify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer/utils.html#listify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.utils.listify" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-bmtk.analyzer">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bmtk.analyzer" title="Link to this heading">#</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.node_types_table">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">node_types_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_types_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#node_types_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.node_types_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.nodes_table">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">nodes_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">population</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#nodes_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.nodes_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.plot_calcium">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">plot_calcium</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_vars_h5</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#plot_calcium"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.plot_calcium" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.plot_calcium_hdf5">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">plot_calcium_hdf5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_vars_h5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Ca2+</span> <span class="pre">influx'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#plot_calcium_hdf5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.plot_calcium_hdf5" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.plot_potential">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">plot_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_vars_h5</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#plot_potential"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.plot_potential" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.plot_potential_hdf5">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">plot_potential_hdf5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cell_vars_h5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'membrane</span> <span class="pre">potential'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_as</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#plot_potential_hdf5"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.plot_potential_hdf5" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bmtk.analyzer.spikes_table">
+<span class="sig-prename descclassname"><span class="pre">bmtk.analyzer.</span></span><span class="sig-name descname"><span class="pre">spikes_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spikes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/bmtk/analyzer.html#spikes_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bmtk.analyzer.spikes_table" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submodules">Submodules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.cell_vars">bmtk.analyzer.cell_vars module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.compartment">bmtk.analyzer.compartment module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.compartment.plot_traces"><code class="docutils literal notranslate"><span class="pre">plot_traces()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.ecp">bmtk.analyzer.ecp module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.ecp.plot_ecp"><code class="docutils literal notranslate"><span class="pre">plot_ecp()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.edges">bmtk.analyzer.edges module</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.firing_rates">bmtk.analyzer.firing_rates module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.firing_rates.convert_rates"><code class="docutils literal notranslate"><span class="pre">convert_rates()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.firing_rates.firing_rates_equal"><code class="docutils literal notranslate"><span class="pre">firing_rates_equal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.firing_rates.plot_rates_popnet"><code class="docutils literal notranslate"><span class="pre">plot_rates_popnet()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.io_tools">bmtk.analyzer.io_tools module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.io_tools.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.spike_trains">bmtk.analyzer.spike_trains module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spike_trains.plot_raster"><code class="docutils literal notranslate"><span class="pre">plot_raster()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spike_trains.plot_rates"><code class="docutils literal notranslate"><span class="pre">plot_rates()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spike_trains.plot_rates_boxplot"><code class="docutils literal notranslate"><span class="pre">plot_rates_boxplot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spike_trains.spike_statistics"><code class="docutils literal notranslate"><span class="pre">spike_statistics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spike_trains.to_dataframe"><code class="docutils literal notranslate"><span class="pre">to_dataframe()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.spikes_analyzer">bmtk.analyzer.spikes_analyzer module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_analyzer.get_mean_firing_rates"><code class="docutils literal notranslate"><span class="pre">get_mean_firing_rates()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_analyzer.spike_files_equal"><code class="docutils literal notranslate"><span class="pre">spike_files_equal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_analyzer.spikes2dict"><code class="docutils literal notranslate"><span class="pre">spikes2dict()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_analyzer.spikes_equal_in_window"><code class="docutils literal notranslate"><span class="pre">spikes_equal_in_window()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.spikes_loader">bmtk.analyzer.spikes_loader module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_loader.load_spikes"><code class="docutils literal notranslate"><span class="pre">load_spikes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_loader.load_spikes_from_h5"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_h5()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_loader.load_spikes_from_nwb"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_nwb()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_loader.load_spikes_from_txt"><code class="docutils literal notranslate"><span class="pre">load_spikes_from_txt()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer.utils">bmtk.analyzer.utils module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.utils.listify"><code class="docutils literal notranslate"><span class="pre">listify()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-bmtk.analyzer">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.node_types_table"><code class="docutils literal notranslate"><span class="pre">node_types_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.nodes_table"><code class="docutils literal notranslate"><span class="pre">nodes_table()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.plot_calcium"><code class="docutils literal notranslate"><span class="pre">plot_calcium()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.plot_calcium_hdf5"><code class="docutils literal notranslate"><span class="pre">plot_calcium_hdf5()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.plot_potential"><code class="docutils literal notranslate"><span class="pre">plot_potential()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.plot_potential_hdf5"><code class="docutils literal notranslate"><span class="pre">plot_potential_hdf5()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bmtk.analyzer.spikes_table"><code class="docutils literal notranslate"><span class="pre">spikes_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/bmtk/bmtk.analyzer.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

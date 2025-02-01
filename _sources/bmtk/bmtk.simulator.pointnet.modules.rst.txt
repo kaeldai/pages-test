@@ -1,0 +1,69 @@
+bmtk.simulator.pointnet.modules package
+=======================================
+
+Submodules
+----------
+
+bmtk.simulator.pointnet.modules.ecephys\_module module
+------------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.ecephys_module
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.iclamp module
+---------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.iclamp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.multimeter\_reporter module
+-----------------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.multimeter_reporter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.record\_spikes module
+-----------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.record_spikes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.sim\_module module
+--------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.sim_module
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.spikes\_inputs module
+-----------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.spikes_inputs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+bmtk.simulator.pointnet.modules.weight\_recorder module
+-------------------------------------------------------
+
+.. automodule:: bmtk.simulator.pointnet.modules.weight_recorder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: bmtk.simulator.pointnet.modules
+   :members:
+   :undoc-members:
+   :show-inheritance:

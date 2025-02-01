@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Configuration file &#8212; Brain Modeling Toolkit 1.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8cbc5bfe" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=58fbf978"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bionet_config';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.1.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+     
+  
+
+<a class="navbar-brand logo" href="https://alleninstitute.org/">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/allen-logo.svg" class="logo__image only-light" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+    <img src="_static/allen-logo.svg" class="logo__image only-dark pst-js-only" alt="Brain Modeling Toolkit 1.1.1 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    About BMTK
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="news_and_events.html">
+    News and Events
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contact_us.html">
+    Contact Us
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials and Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developers_guide.html">
+    For Developers
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Configuration file</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="configuration-file">
+<h1>Configuration file<a class="headerlink" href="#configuration-file" title="Link to this heading">#</a></h1>
+<p>The configuration file defines the files describing the network, its input as well as run-time parameters. For convenience it is grouped into the following categories:</p>
+<section id="manifest">
+<h2>Manifest<a class="headerlink" href="#manifest" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Includes custom path variables that may be used to build full paths to files. The special variable “${configdir}” in the “$BASE_DIR” stands for the directory where the configuration file is located. Users may specify any valid directory for “$BASE_DIR” as well.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;manifest&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;$BASE_DIR&quot;</span><span class="p">:</span>    <span class="s2">&quot;$</span><span class="si">{configdir}</span><span class="s2">&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;$OUTPUT_DIR&quot;</span><span class="p">:</span>  <span class="s2">&quot;$BASE_DIR/output&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;$INPUT_DIR&quot;</span><span class="p">:</span>   <span class="s2">&quot;$BASE_DIR/../../NWB_files&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;$NETWORK_DIR&quot;</span><span class="p">:</span> <span class="s2">&quot;$BASE_DIR/network&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;$COMPONENT_DIR&quot;</span><span class="p">:</span><span class="s2">&quot;$BASE_DIR/../components&quot;</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Includes run-time parameters</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;run&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;tstop&quot;</span><span class="p">:</span><span class="mf">3000.0</span><span class="p">,</span>         <span class="c1"># run time (ms)</span>
+  <span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>          <span class="c1"># time step (ms)</span>
+  <span class="s2">&quot;dL&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>           <span class="c1"># length of compartments (i.e., segments) (um)</span>
+  <span class="s2">&quot;overwrite_output_dir&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>   <span class="c1"># if True: will overwrite the output directory; if False: will issue an error that directory exists</span>
+  <span class="s2">&quot;spike_threshold&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span>     <span class="c1"># will record a spike when membrane voltage (mV) is exceeded</span>
+  <span class="s2">&quot;nsteps_block&quot;</span><span class="p">:</span><span class="mi">5000</span><span class="p">,</span>        <span class="c1"># will write to disk data after this many steps</span>
+  <span class="s2">&quot;save_cell_vars&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="s2">&quot;cai&quot;</span><span class="p">],</span> <span class="c1"># save somatic variables in the list</span>
+  <span class="s2">&quot;calc_ecp&quot;</span><span class="p">:</span> <span class="n">true</span>        <span class="c1"># calculate ExtraCellular Potential (ECP): True or False</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Includes information about the initial conditions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;celsius&quot;</span><span class="p">:</span> <span class="mf">34.0</span><span class="p">,</span>    <span class="c1"># temperature (C)</span>
+  <span class="s2">&quot;v_init&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">80</span>       <span class="c1"># initial membrane voltage (mV)</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="node-id-selections">
+<h2>Node_id selections<a class="headerlink" href="#node-id-selections" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Defines selections of cells. For example, this way can specify the cells (node_ids) for which variables will be saved</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;node_id_selections&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;save_cell_vars&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="input">
+<h2>Input<a class="headerlink" href="#input" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Defines spike_trains for the external inputs</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;external_spikes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;nwb&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;$INPUT_DIR/lgn_spikes.nwb&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source_nodes&quot;</span><span class="p">:</span> <span class="s2">&quot;LGN&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;trial&quot;</span><span class="p">:</span> <span class="s2">&quot;trial_0&quot;</span>
+  <span class="p">},</span>
+  <span class="o">...</span>
+  <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Defines file names for the output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;log_file&quot;</span><span class="p">:</span>     <span class="s2">&quot;$OUTPUT_DIR/log.txt&quot;</span><span class="p">,</span>      <span class="c1"># log file</span>
+  <span class="s2">&quot;spikes_ascii_file&quot;</span><span class="p">:</span>    <span class="s2">&quot;$OUTPUT_DIR/spikes.txt&quot;</span><span class="p">,</span>   <span class="c1"># file for spikes in ascii format</span>
+  <span class="s2">&quot;spikes_hdf5_file&quot;</span><span class="p">:</span> <span class="s2">&quot;$OUTPUT_DIR/spikes.h5&quot;</span><span class="p">,</span>    <span class="c1"># file for spikes in HDF5 format</span>
+  <span class="s2">&quot;cell_vars_dir&quot;</span><span class="p">:</span>    <span class="s2">&quot;$OUTPUT_DIR/cellvars&quot;</span><span class="p">,</span>     <span class="c1"># folder to save variables from individual cells</span>
+  <span class="s2">&quot;ecp_file&quot;</span><span class="p">:</span>     <span class="s2">&quot;$OUTPUT_DIR/ecp.h5&quot;</span><span class="p">,</span>       <span class="c1"># file to save extracellular potential</span>
+  <span class="s2">&quot;output_dir&quot;</span><span class="p">:</span>       <span class="s2">&quot;$OUTPUT_DIR&quot;</span>           <span class="c1"># output directory</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>The “components” grouping includes paths to directories containing building blocks of a network model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;components&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;morphologies_dir&quot;</span><span class="p">:</span>     <span class="s2">&quot;$COMPONENT_DIR/biophysical/morphology&quot;</span><span class="p">,</span>    <span class="c1"># morphologies</span>
+  <span class="s2">&quot;synaptic_models_dir&quot;</span><span class="p">:</span>      <span class="s2">&quot;$COMPONENT_DIR/synaptic_models&quot;</span><span class="p">,</span>       <span class="c1"># synaptic models</span>
+  <span class="s2">&quot;mechanisms_dir&quot;</span><span class="p">:</span>       <span class="s2">&quot;$COMPONENT_DIR/mechanisms&quot;</span><span class="p">,</span>            <span class="c1"># NEURON mechanisms</span>
+  <span class="s2">&quot;biophysical_neuron_models_dir&quot;</span><span class="p">:</span><span class="s2">&quot;$COMPONENT_DIR/biophysical/electrophysiology&quot;</span><span class="p">,</span> <span class="c1"># parameters of biophysical models</span>
+  <span class="s2">&quot;point_neuron_models_dir&quot;</span><span class="p">:</span>  <span class="s2">&quot;$COMPONENT_DIR/intfire&quot;</span><span class="p">,</span>           <span class="c1"># parameters of point neuron models</span>
+  <span class="s2">&quot;templates_dir&quot;</span><span class="p">:</span>        <span class="s2">&quot;$COMPONENT_DIR/hoc_templates&quot;</span>          <span class="c1"># NEURON HOC templates</span>
+<span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="recording-extracellular-electrode">
+<h2>Recording Extracellular Electrode<a class="headerlink" href="#recording-extracellular-electrode" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Includes parameters defining extracellular electrodes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;recXelectrode&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;positions&quot;</span><span class="p">:</span> <span class="s2">&quot;$COMPONENT_DIR/recXelectrodes/linear_electrode.csv&quot;</span>
+  <span class="p">},</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="networks">
+<h2>Networks<a class="headerlink" href="#networks" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Includes files defining nodes and edges:</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;networks&quot;</span><span class="p">:</span> <span class="p">{</span>
+  <span class="s2">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;V1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;nodes_file&quot;</span><span class="p">:</span> <span class="s2">&quot;$NETWORK_DIR/v1_nodes.h5&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;node_types_file&quot;</span><span class="p">:</span> <span class="s2">&quot;$NETWORK_DIR/v1_node_types.csv&quot;</span>
+    <span class="p">},</span>
+      <span class="o">...</span>
+  <span class="p">],</span>
+
+  <span class="s2">&quot;edges&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;V1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;V1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;edges_file&quot;</span><span class="p">:</span> <span class="s2">&quot;$NETWORK_DIR/v1_v1_edges.h5&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;edge_types_file&quot;</span><span class="p">:</span> <span class="s2">&quot;$NETWORK_DIR/v1_v1_edge_types.csv&quot;</span>
+    <span class="p">},</span>
+  <span class="o">...</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manifest">Manifest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run">Run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-id-selections">Node_id selections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input">Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#components">Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recording-extracellular-electrode">Recording Extracellular Electrode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#networks">Networks</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/bionet_config.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
