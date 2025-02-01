@@ -24,10 +24,14 @@ jobs:
 
       - name: Install Requirements
         run: |
-          npm install
           pip install -r doc_requirements.txt
           pip install neuron==8.0.0
           pip install .
+
+      - name: Build Documentation
+        run: |
+          cd docs/autodocs
+          make html
       
       - name: Deplay to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
