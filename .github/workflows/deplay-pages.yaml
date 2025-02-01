@@ -36,5 +36,6 @@ jobs:
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          clean: true
           branch: gh-pages
           folder: ./docs/autodocs/build/html
